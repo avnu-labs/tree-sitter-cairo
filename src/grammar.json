@@ -1041,11 +1041,23 @@
           "name": "break_statement"
         },
         {
+          "type": "SYMBOL",
+          "name": "if_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "loop_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "match_expression"
+        },
+        {
           "type": "SEQ",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_simplement_statement"
+              "name": "_expression"
             },
             {
               "type": "STRING",
@@ -1225,10 +1237,6 @@
           "value": ";"
         }
       ]
-    },
-    "_simplement_statement": {
-      "type": "SYMBOL",
-      "name": "_expression"
     },
     "_expression": {
       "type": "CHOICE",
@@ -1652,7 +1660,7 @@
       ]
     },
     "if_expression": {
-      "type": "PREC_LEFT",
+      "type": "PREC_RIGHT",
       "value": 0,
       "content": {
         "type": "SEQ",
@@ -2661,6 +2669,10 @@
   "conflicts": [
     [
       "_qualified_name"
+    ],
+    [
+      "_statement",
+      "_expression"
     ]
   ],
   "precedences": [],

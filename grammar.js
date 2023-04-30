@@ -21,7 +21,7 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, /\s/],
 
-  conflicts: ($) => [[$._qualified_name]],
+  conflicts: ($) => [[$._qualified_name], [$._statement, $._expression]],
 
   rules: {
     source_file: ($) => repeat($._definition),
@@ -214,7 +214,12 @@ module.exports = grammar({
         $.assignment_statement,
         $.return_statement,
         $.break_statement,
-        seq($._simplement_statement, terminator)
+
+        $.if_expression,
+        $.loop_expression,
+        $.match_expression,
+
+        seq($._expression, terminator)
       ),
 
     let_statement: ($) =>
@@ -239,8 +244,6 @@ module.exports = grammar({
     return_statement: ($) => seq("return", $._expression, terminator),
 
     break_statement: ($) => seq("break", $._expression, terminator),
-
-    _simplement_statement: ($) => $._expression,
 
     _expression: ($) =>
       choice(
