@@ -1,0 +1,78 @@
+===================
+Constantes
+===================
+
+const foo: u32 = 8;
+const foo: usize = 0xff;
+const foo: usize = 0o04321;
+const foo: usize = 0b01;
+const foo: u8 = 8_u8;
+
+const foo: felt252 = 10;
+
+const foo: bool = true;
+const foo: bool = false;
+
+const foo: (u32, bool) = (10,20);
+const foo: felt252 = 'hello';
+
+---
+
+(source_file
+    (const_declaration
+        (name)
+        (type (name))
+        (integer)
+    )
+    (const_declaration
+        (name)
+        (type (name))
+        (hex)
+    )
+    (const_declaration
+        (name)
+        (type (name))
+        (octal)
+    )
+    (const_declaration
+        (name)
+        (type (name))
+        (binary)
+    )
+    (const_declaration
+        (name)
+        (type (name))
+        (integer)
+    )
+    (const_declaration
+        (name)
+        (type (name))
+        (integer)
+    )
+    (const_declaration
+        (name)
+        (type (name))
+        (true)
+    )
+    (const_declaration
+        (name)
+        (type (name))
+        (false)
+    )
+    (const_declaration
+        (name)
+        (type 
+            (type_tuple
+                (type (name))
+                (type (name))
+            )
+        )
+        (integer)
+        (integer)
+    )
+    (const_declaration
+        (name)
+        (type (name))
+        (string)
+    )
+)

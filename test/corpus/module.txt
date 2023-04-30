@@ -1,0 +1,22 @@
+==================
+Mod declaration
+==================
+
+mod foo {
+    const bar: usize = 42;
+}
+
+---
+
+(source_file
+    (module_declaration
+        (name)
+        (module_spec
+            (const_declaration
+                (name)
+                (type (name))
+                (integer)
+            )
+        )
+    )
+)

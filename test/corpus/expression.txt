@@ -1,0 +1,402 @@
+============================
+If expression
+============================
+
+fn foo() {
+    if true { 8 } else { 9 };
+
+    if true { 8 };
+
+    if true { 8 }
+    else if true { 8 }
+    else { 9 };
+
+    if if true { true } else { false } { false };
+}
+
+---
+
+(source_file
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+        )
+        (block
+            (if_expression
+                (true)
+                (if_then (integer))
+                (if_else (integer))
+            )
+            (if_expression
+                (true)
+                (if_then (integer))
+            )
+            (if_expression
+                (true)
+                (if_then (integer))
+                (if_else
+                    (if_expression
+                        (true)
+                        (if_then (integer))
+                        (if_else (integer))
+                    )
+                )
+            )
+            (if_expression
+                (if_expression
+                    (true)
+                    (if_then (true))
+                    (if_else (false))
+                )
+                (if_then (false))
+            )
+        )
+    )
+)
+
+============================
+Match expression
+============================
+
+fn foo() {
+    match a {
+        42 => 42,
+        
+        true => {},
+        false => {},
+
+        Option::Some(_) => {},
+        Foo{ a, b } => {},
+        (a, b) => {},
+
+        _ => {}
+    };
+}
+
+---
+
+(source_file
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+        )
+        (block
+            (match_expression
+                (name)
+                (match_arm_list
+                    (match_arm
+                        (integer)
+                        (integer)
+                    )
+                    (match_arm
+                        (true)
+                        (empty_expression)
+                    )
+                    (match_arm
+                        (false)
+                        (empty_expression)
+                    )
+                    (match_arm
+                        (pattern_enum 
+                            (qualified_name
+                                (name)
+                                (name)
+                            )
+                            (wildcard)
+                        )
+                        (empty_expression)
+                    )
+                    (match_arm
+                        (pattern_struct 
+                            (qualified_name
+                                (name)
+                            )
+                            (name)
+                            (name)
+                        )
+                        (empty_expression)
+                    )
+                    (match_arm
+                        (pattern_tuple
+                            (name)
+                            (name)
+                        )
+                        (empty_expression)
+                    )
+                    (match_arm
+                        (wildcard)
+                        (empty_expression)
+                    )
+                )
+            )
+        )
+    )
+)
+
+============================
+Let expression
+============================
+
+fn foo() {
+    let x = 8;
+    let _ = 9;
+    let Foo{ a, b } = foo;
+    let Foo(a, b) = foo;
+    let (a, b) = (true, true);
+}
+
+---
+
+(source_file
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+        )
+        (block
+            (let_statement 
+                (name)
+                (integer)
+            )
+            (let_statement 
+                (wildcard)
+                (integer)
+            )
+            (let_statement 
+                (pattern_struct 
+                    (qualified_name (name))
+                    (name)
+                    (name)
+                )
+                (name)
+            )
+            (let_statement 
+                (pattern_enum
+                    (qualified_name (name))
+                    (name)
+                    (name)
+                )
+                (name)
+            )
+            (let_statement 
+                (pattern_tuple
+                    (name)
+                    (name)
+                )
+                (parenthesized_expression
+                    (true)
+                    (true)
+                )
+            )
+        )
+    )
+)
+
+============================
+Unary operators expression
+============================
+
+fn foo() {
+    *x;
+    -x;
+    !x;
+
+    -x * 1;
+}
+
+---
+
+(source_file
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+        )
+        (block
+            (unary_expression (name))
+            (unary_expression (name))
+            (unary_expression (name))
+            (binary_expression
+                (unary_expression (name))
+                (integer)
+            )
+        )
+    )
+)
+
+============================
+Binary operators expression
+============================
+
+fn foo() {
+    8 + 8;
+    x += 8;
+
+    8 - 8;
+    x -= 8;
+
+    8 * 8;
+    x *= 8;
+
+    8 / 8;
+    x /= 8;
+
+    8 % 2;
+    x %= 2;
+}
+
+---
+
+(source_file
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+        )
+        (block
+            (binary_expression
+                (integer)
+                (integer)
+            )
+            (assignment_statement
+                (name)
+                (integer)
+            )
+            (binary_expression
+                (integer)
+                (integer)
+            )
+            (assignment_statement
+                (name)
+                (integer)
+            )
+            (binary_expression
+                (integer)
+                (integer)
+            )
+            (assignment_statement
+                (name)
+                (integer)
+            )
+            (binary_expression
+                (integer)
+                (integer)
+            )
+            (assignment_statement
+                (name)
+                (integer)
+            )
+            (binary_expression
+                (integer)
+                (integer)
+            )
+            (assignment_statement
+                (name)
+                (integer)
+            )
+        )
+    )
+)
+
+============================
+Call expression
+============================
+
+fn foo() {
+    a();
+    a(8,9,10);
+    a::<1>(8);
+}
+
+---
+
+(source_file
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+        )
+        (block
+            (call_expression (name) (argument_list))
+            (call_expression 
+                (name)
+                (argument_list
+                    (integer)
+                    (integer)
+                    (integer)
+                )    
+            )
+            (call_expression 
+                (name)
+                (generic_argument_list (integer))
+                (argument_list (integer)) 
+            )
+        )
+    )
+)
+
+============================
+Selector expression
+============================
+
+fn foo() {
+    a.foo.bar;
+    a.foo().bar;
+}
+
+---
+
+(source_file
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+        )
+        (block
+            (selector_expression
+                (selector_expression
+                    (name)
+                    (name)
+                )
+                (name)
+            )
+            (selector_expression
+                (call_expression
+                    (selector_expression
+                        (name)
+                        (name)
+                    )
+                    (argument_list)
+                )
+                (name)
+            )
+        )
+    )
+)
+
+============================
+Comparison operator expression
+============================
+
+fn foo() {
+    assert(ERC20::total_supply() == u256_from_felt252(0), 'Supply should eq 0');
+}
+
+---
+
+(source_file
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+        )
+        (block
+            (binary_expression
+                (call_expression (name))
+                (call_expression (name))
+            )
+        )
+    )
+)

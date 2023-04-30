@@ -1,0 +1,56 @@
+===================
+Enum declaration
+===================
+
+enum Foo {
+    Bar1: (),
+    Bar2: u32,
+    Bar3: (u32, bool)
+}
+
+#[derive(Drop)]
+enum Foo {
+    Bar1: ()
+}
+
+---
+
+(source_file
+    (enum_declaration
+        (name)
+        (member_declaration_list
+            (member_declaration
+                (name)
+                (type (unit_type))
+            )
+            (member_declaration
+                (name)
+                (type (name))
+            )
+            (member_declaration
+                (name)
+                (type 
+                    (type_tuple
+                        (type (name))
+                        (type (name))
+                    )
+                )
+            )
+        )
+    )
+    (enum_declaration
+        (attribute_list
+            (attribute
+                (name)
+                (attribute_argument_list (name))
+            )
+        )
+        (name)
+        (member_declaration_list
+            (member_declaration
+                (name)
+                (type (unit_type))
+            )
+        )
+    )
+)

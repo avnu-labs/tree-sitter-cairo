@@ -1,0 +1,23 @@
+===================
+Comments
+===================
+
+// Some comments
+fn foo() {
+    // Some comments
+}
+
+---
+
+(source_file
+    (comment)
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+        )
+        (block
+            (comment)
+        )
+    )
+)

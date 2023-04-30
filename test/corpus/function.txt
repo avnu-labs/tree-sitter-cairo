@@ -1,0 +1,145 @@
+============================
+Function declaration
+============================
+
+fn main() {}
+fn foo(x: u32) {}
+fn foo(x: u32, y: bool) {}
+fn foo(x: foo::bar, y: bool) {}
+fn foo() -> felt252 {}
+fn foo() -> (u32, u32) {}
+
+---
+
+(source_file
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+        )
+        (block)
+    )
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list
+                (parameter_declaration
+                    (name)
+                    (type (name))
+                )
+            )
+        )
+        (block)
+    )
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list
+                (parameter_declaration
+                    (name)
+                    (type (name))
+                )
+                (parameter_declaration
+                    (name)
+                    (type (name))
+                )
+            )
+        )
+        (block)
+    )
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list
+                (parameter_declaration
+                    (name)
+                    (type (name) (name))
+                )
+                (parameter_declaration
+                    (name)
+                    (type (name))
+                )
+            )
+        )
+        (block)
+    )
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+            (type (name))
+        )
+        (block)
+    )
+    (fun_declaration
+        (fun_signature
+            (name)
+            (parameter_list)
+            (type 
+                (type_tuple 
+                    (type (name))
+                    (type (name))
+                )
+            )
+        )
+        (block)
+    )
+)
+
+
+============================
+Generic function declaration
+============================
+
+fn foo<T>(a: T) {}
+fn foo<T, impl TDrop: Drop<T>>() {}
+fn foo<const T: usize>() {}
+
+---
+
+(source_file
+    (fun_declaration
+        (fun_signature
+            (name)
+            (generic_parameter_list
+                (generic_parameter_declaration (name))
+            )
+            (parameter_list
+                (parameter_declaration (name) (type (name)))
+            )
+        )
+        (block)
+    )
+    (fun_declaration
+        (fun_signature
+            (name)
+            (generic_parameter_list
+                (generic_parameter_declaration (name))
+                (generic_impl_declaration 
+                    (name) 
+                    (type 
+                        (name)
+                        (type_arguments
+                            (type (name))
+                        )
+                    )
+                )
+            )
+            (parameter_list)
+        )
+        (block)
+    )
+        (fun_declaration
+        (fun_signature
+            (name)
+            (generic_parameter_list
+                (generic_const_declaration 
+                    (name) 
+                    (type (name))
+                )
+            )
+            (parameter_list)
+        )
+        (block)
+    )
+)

@@ -1,0 +1,35 @@
+===================
+Imports
+===================
+
+use foo;
+use foo::bar;
+use foo1::foo2::bar;
+use foo as bar;
+use foo::bar as bar2;
+
+---
+
+(source_file
+    (import
+        (qualified_name (name))
+    )
+    (import
+        (qualified_name (name) (name))
+    )
+    (import
+        (qualified_name (name) (name) (name))
+    )
+    (import
+        (qualified_name (name))
+        (import_as
+            (name)
+        )
+    )
+    (import
+        (qualified_name (name) (name))
+        (import_as
+            (name)
+        )
+    )
+)

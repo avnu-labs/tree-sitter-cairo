@@ -1,0 +1,101 @@
+============================
+Struct declaration
+============================
+
+struct Foo;
+
+struct Foo{}
+
+struct Foo{
+    bar: bool
+}
+
+struct Foo{
+    bar1: u32,
+    bar2: u32
+}
+
+struct Foo<T>{
+    bar1: T,
+}
+
+struct Foo<A,B> {
+    bar1: (A, B)
+}
+
+#[derive(foo)]
+struct Foo{}
+
+---
+
+(source_file
+    (struct_declaration
+        (name)
+    )
+    (struct_declaration
+        (name)
+        (member_declaration_list)
+    )
+    (struct_declaration
+        (name)
+        (member_declaration_list
+            (member_declaration
+                (name)
+                (type (name))
+            )
+        )
+    )
+    (struct_declaration
+        (name)
+        (member_declaration_list
+            (member_declaration
+                (name)
+                (type (name))
+            )
+            (member_declaration
+                (name)
+                (type (name))
+            )
+        )
+    )
+    (struct_declaration
+        (name)
+        (generic_parameter_list
+          (generic_parameter_declaration (name))
+        )
+        (member_declaration_list
+            (member_declaration
+                (name)
+                (type (name))
+            )
+        )
+    )
+    (struct_declaration
+        (name)
+        (generic_parameter_list
+          (generic_parameter_declaration (name))
+          (generic_parameter_declaration (name))
+        )
+        (member_declaration_list
+            (member_declaration
+                (name)
+                (type 
+                    (type_tuple 
+                        (type (name))
+                        (type (name))
+                    )
+                )
+            )
+        )
+    )
+    (struct_declaration
+        (attribute_list
+            (attribute 
+                (name)
+                (attribute_argument_list (name))
+            )
+        )
+        (name)
+        (member_declaration_list)
+    )
+)
