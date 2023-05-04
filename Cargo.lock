@@ -51,7 +51,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "tree-sitter-YOUR-LANGUAGE-NAME"
+name = "tree-sitter-cairo"
 version = "0.0.1"
 dependencies = [
  "cc",

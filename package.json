@@ -1,7 +1,7 @@
 {
-  "name": "tree-sitter-YOUR-LANGUAGE-NAME",
+  "name": "tree-sitter-cairo",
   "version": "0.0.1",
-  "description": "YOUR-LANGUAGE-NAME grammar for tree-sitter",
+  "description": "cairo 1.0 grammar for tree-sitter",
   "main": "bindings/node",
   "keywords": [
     "parsing",
