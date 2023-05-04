@@ -11,8 +11,8 @@ fn foo() {
 
 (source_file
     (comment)
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
         )

@@ -33,113 +33,111 @@ trait Foo {
 (source_file
     (trait_declaration
         (name)
-        (trait_declaration_list)
+        (trait_body)
     )
     (trait_declaration
         (name)
-        (trait_declaration_list
-            (trait_fun
-                (fun_signature
+        (trait_body
+            (trait_function
+                (function_signature
                     (name)
                     (parameter_list
                         (parameter_declaration
                             (name)
-                            (type (name))
+                            (type_identifier (qualified_name (name)))
                         )
                     )
-                    (type (name))
+                    (type_identifier (qualified_name (name)))
                 )
             )
-            (trait_fun
-                (fun_signature
+            (trait_function
+                (function_signature
                     (name)
                     (parameter_list
                         (parameter_declaration
                             (name)
-                            (type (name))
+                            (type_identifier (qualified_name (name)))
                         )
                     )
-                    (type (name))
-                )
-            )
-        )
-    )
-    (trait_declaration
-        (name)
-        (trait_declaration_list
-            (trait_fun
-                (fun_signature
-                    (attribute_list (attribute (name)))
-                    (name)
-                    (parameter_list
-                        (parameter_declaration
-                            (name)
-                            (type (name))
-                        )
-                    )
-                    (type (name))
+                    (type_identifier (qualified_name (name)))
                 )
             )
         )
     )
     (trait_declaration
         (name)
-        (generic_parameter_list
-            (generic_parameter_declaration (name))
-        )
-        (trait_declaration_list
-            (trait_fun
-                (fun_signature
+        (trait_body
+            (trait_function
+                (function_signature
+                    (attribute_list (attribute (path (name))))
                     (name)
                     (parameter_list
                         (parameter_declaration
                             (name)
-                            (type (name))
+                            (type_identifier (qualified_name (name)))
                         )
                     )
-                    (type (name))
+                    (type_identifier (qualified_name (name)))
                 )
             )
         )
     )
     (trait_declaration
         (name)
-        (generic_parameter_list
-            (generic_parameter_declaration (name))
-            (generic_parameter_declaration (name))
-        )
-        (trait_declaration_list
-            (trait_fun
-                (fun_signature
+        (type_parameter_list (name))
+        (trait_body
+            (trait_function
+                (function_signature
                     (name)
                     (parameter_list
                         (parameter_declaration
                             (name)
-                            (type (name))
-                        )
-                        (parameter_declaration
-                            (name)
-                            (type (name))
+                            (type_identifier (qualified_name (name)))
                         )
                     )
-                    (type (name))
+                    (type_identifier (qualified_name (name)))
                 )
             )
         )
     )
     (trait_declaration
         (name)
-        (trait_declaration_list
-            (trait_fun
-                (fun_signature
+        (type_parameter_list
+            (name)
+            (name)
+        )
+        (trait_body
+            (trait_function
+                (function_signature
+                    (name)
+                    (parameter_list
+                        (parameter_declaration
+                            (name)
+                            (type_identifier (qualified_name (name)))
+                        )
+                        (parameter_declaration
+                            (name)
+                            (type_identifier (qualified_name (name)))
+                        )
+                    )
+                    (type_identifier (qualified_name (name)))
+                )
+            )
+        )
+    )
+    (trait_declaration
+        (name)
+        (trait_body
+            (trait_function
+                (function_signature
                     (name)
                     (parameter_list)
-                    (type (name))
+                    (type_identifier (qualified_name (name)))
                 )
                 (block
                     (let_statement
-                        (name)
-                        (integer)
+                        (identifier)
+                        (number (integer))
                     )
                 )
             )

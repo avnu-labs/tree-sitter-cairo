@@ -12,74 +12,77 @@ fn foo() -> (u32, u32) {}
 ---
 
 (source_file
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
         )
         (block)
     )
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list
                 (parameter_declaration
                     (name)
-                    (type (name))
+                    (type_identifier (qualified_name (name)))
                 )
             )
         )
         (block)
     )
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list
                 (parameter_declaration
                     (name)
-                    (type (name))
+                    (type_identifier (qualified_name (name)))
                 )
                 (parameter_declaration
                     (name)
-                    (type (name))
+                    (type_identifier (qualified_name (name)))
                 )
             )
         )
         (block)
     )
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list
                 (parameter_declaration
                     (name)
-                    (type (name) (name))
+                    (type_identifier 
+                        (qualified_name 
+                            (qualified_name_segment (name)) 
+                            (name)
+                        )
+                    )
                 )
                 (parameter_declaration
                     (name)
-                    (type (name))
+                    (type_identifier (qualified_name (name)))
                 )
             )
         )
         (block)
     )
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
-            (type (name))
+            (type_identifier (qualified_name (name)))
         )
         (block)
     )
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
-            (type 
-                (type_tuple 
-                    (type (name))
-                    (type (name))
-                )
+            (type_tuple 
+                (type_identifier (qualified_name (name)))
+                (type_identifier (qualified_name (name)))
             )
         )
         (block)
@@ -98,29 +101,30 @@ fn foo<const T: usize>() {}
 ---
 
 (source_file
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
-            (generic_parameter_list
-                (generic_parameter_declaration (name))
-            )
+            (type_parameter_list (name))
             (parameter_list
-                (parameter_declaration (name) (type (name)))
+                (parameter_declaration 
+                    (name) 
+                    (type_identifier (qualified_name (name)))
+                )
             )
         )
         (block)
     )
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
-            (generic_parameter_list
-                (generic_parameter_declaration (name))
-                (generic_impl_declaration 
+            (type_parameter_list
+                (name)
+                (type_impl_declaration 
                     (name) 
-                    (type 
-                        (name)
-                        (type_arguments
-                            (type (name))
+                    (type_identifier
+                        (qualified_name (name))
+                        (type_parameters
+                            (type_identifier (qualified_name (name)))
                         )
                     )
                 )
@@ -129,13 +133,13 @@ fn foo<const T: usize>() {}
         )
         (block)
     )
-        (fun_declaration
-        (fun_signature
+        (function_declaration
+        (function_signature
             (name)
-            (generic_parameter_list
-                (generic_const_declaration 
+            (type_parameter_list
+                (type_const_declaration 
                     (name) 
-                    (type (name))
+                    (type_identifier (qualified_name (name)))
                 )
             )
             (parameter_list)

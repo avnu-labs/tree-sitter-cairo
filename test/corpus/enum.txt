@@ -21,19 +21,17 @@ enum Foo {
         (member_declaration_list
             (member_declaration
                 (name)
-                (type (unit_type))
+                (unit_type)
             )
             (member_declaration
                 (name)
-                (type (name))
+                (type_identifier (qualified_name (name)))
             )
             (member_declaration
                 (name)
-                (type 
-                    (type_tuple
-                        (type (name))
-                        (type (name))
-                    )
+                (type_tuple
+                    (type_identifier (qualified_name (name)))
+                    (type_identifier (qualified_name (name)))
                 )
             )
         )
@@ -41,15 +39,15 @@ enum Foo {
     (enum_declaration
         (attribute_list
             (attribute
-                (name)
-                (attribute_argument_list (name))
+                (path (name))
+                (attribute_argument (name))
             )
         )
         (name)
         (member_declaration_list
             (member_declaration
                 (name)
-                (type (unit_type))
+                (unit_type)
             )
         )
     )

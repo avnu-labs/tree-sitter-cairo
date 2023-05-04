@@ -8,11 +8,11 @@
       "required": false,
       "types": [
         {
-          "type": "binary",
+          "type": "binary_expression",
           "named": true
         },
         {
-          "type": "binary_expression",
+          "type": "block",
           "named": true
         },
         {
@@ -20,31 +20,11 @@
           "named": true
         },
         {
-          "type": "curlied_expression",
-          "named": true
-        },
-        {
-          "type": "empty_expression",
-          "named": true
-        },
-        {
           "type": "false",
           "named": true
         },
         {
-          "type": "hex",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_expression",
-          "named": true
-        },
-        {
-          "type": "integer",
           "named": true
         },
         {
@@ -56,11 +36,11 @@
           "named": true
         },
         {
-          "type": "octal",
+          "type": "number",
           "named": true
         },
         {
-          "type": "parenthesized_expression",
+          "type": "qualified_name",
           "named": true
         },
         {
@@ -76,7 +56,15 @@
           "named": true
         },
         {
+          "type": "tuple_expression",
+          "named": true
+        },
+        {
           "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unit",
           "named": true
         }
       ]
@@ -91,75 +79,11 @@
         "required": true,
         "types": [
           {
-            "type": "binary",
+            "type": "name",
             "named": true
           },
           {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "call_expression",
-            "named": true
-          },
-          {
-            "type": "curlied_expression",
-            "named": true
-          },
-          {
-            "type": "empty_expression",
-            "named": true
-          },
-          {
-            "type": "false",
-            "named": true
-          },
-          {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
-            "named": true
-          },
-          {
-            "type": "loop_expression",
-            "named": true
-          },
-          {
-            "type": "match_expression",
-            "named": true
-          },
-          {
-            "type": "octal",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expression",
-            "named": true
-          },
-          {
-            "type": "selector_expression",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "true",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
+            "type": "wildcard",
             "named": true
           }
         ]
@@ -199,11 +123,11 @@
         "required": true,
         "types": [
           {
-            "type": "binary",
+            "type": "binary_expression",
             "named": true
           },
           {
-            "type": "binary_expression",
+            "type": "block",
             "named": true
           },
           {
@@ -211,31 +135,11 @@
             "named": true
           },
           {
-            "type": "curlied_expression",
-            "named": true
-          },
-          {
-            "type": "empty_expression",
-            "named": true
-          },
-          {
             "type": "false",
             "named": true
           },
           {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
             "named": true
           },
           {
@@ -247,11 +151,11 @@
             "named": true
           },
           {
-            "type": "octal",
+            "type": "number",
             "named": true
           },
           {
-            "type": "parenthesized_expression",
+            "type": "qualified_name",
             "named": true
           },
           {
@@ -267,7 +171,15 @@
             "named": true
           },
           {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
             "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
             "named": true
           }
         ]
@@ -280,10 +192,14 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "attribute_argument",
+          "named": true
+        },
+        {
+          "type": "path",
           "named": true
         }
       ]
@@ -295,14 +211,10 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "attribute_argument",
-          "named": true
-        },
-        {
-          "type": "binary",
           "named": true
         },
         {
@@ -310,19 +222,15 @@
           "named": true
         },
         {
-          "type": "hex",
+          "type": "name",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "number",
           "named": true
         },
         {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "octal",
+          "type": "path",
           "named": true
         },
         {
@@ -331,6 +239,10 @@
         },
         {
           "type": "true",
+          "named": true
+        },
+        {
+          "type": "unit",
           "named": true
         }
       ]
@@ -352,11 +264,6 @@
     }
   },
   {
-    "type": "binary",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "binary_expression",
     "named": true,
     "fields": {
@@ -365,11 +272,11 @@
         "required": true,
         "types": [
           {
-            "type": "binary",
+            "type": "binary_expression",
             "named": true
           },
           {
-            "type": "binary_expression",
+            "type": "block",
             "named": true
           },
           {
@@ -377,31 +284,11 @@
             "named": true
           },
           {
-            "type": "curlied_expression",
-            "named": true
-          },
-          {
-            "type": "empty_expression",
-            "named": true
-          },
-          {
             "type": "false",
             "named": true
           },
           {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
             "named": true
           },
           {
@@ -413,11 +300,11 @@
             "named": true
           },
           {
-            "type": "octal",
+            "type": "number",
             "named": true
           },
           {
-            "type": "parenthesized_expression",
+            "type": "qualified_name",
             "named": true
           },
           {
@@ -433,7 +320,15 @@
             "named": true
           },
           {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
             "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
             "named": true
           }
         ]
@@ -501,11 +396,11 @@
         "required": true,
         "types": [
           {
-            "type": "binary",
+            "type": "binary_expression",
             "named": true
           },
           {
-            "type": "binary_expression",
+            "type": "block",
             "named": true
           },
           {
@@ -513,31 +408,11 @@
             "named": true
           },
           {
-            "type": "curlied_expression",
-            "named": true
-          },
-          {
-            "type": "empty_expression",
-            "named": true
-          },
-          {
             "type": "false",
             "named": true
           },
           {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
             "named": true
           },
           {
@@ -549,11 +424,11 @@
             "named": true
           },
           {
-            "type": "octal",
+            "type": "number",
             "named": true
           },
           {
-            "type": "parenthesized_expression",
+            "type": "qualified_name",
             "named": true
           },
           {
@@ -569,7 +444,15 @@
             "named": true
           },
           {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
             "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
             "named": true
           }
         ]
@@ -589,11 +472,11 @@
           "named": true
         },
         {
-          "type": "binary",
+          "type": "binary_expression",
           "named": true
         },
         {
-          "type": "binary_expression",
+          "type": "block",
           "named": true
         },
         {
@@ -605,31 +488,11 @@
           "named": true
         },
         {
-          "type": "curlied_expression",
-          "named": true
-        },
-        {
-          "type": "empty_expression",
-          "named": true
-        },
-        {
           "type": "false",
           "named": true
         },
         {
-          "type": "hex",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_expression",
-          "named": true
-        },
-        {
-          "type": "integer",
           "named": true
         },
         {
@@ -645,11 +508,11 @@
           "named": true
         },
         {
-          "type": "octal",
+          "type": "number",
           "named": true
         },
         {
-          "type": "parenthesized_expression",
+          "type": "qualified_name",
           "named": true
         },
         {
@@ -669,7 +532,15 @@
           "named": true
         },
         {
+          "type": "tuple_expression",
+          "named": true
+        },
+        {
           "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unit",
           "named": true
         }
       ]
@@ -681,14 +552,14 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "binary",
+          "type": "binary_expression",
           "named": true
         },
         {
-          "type": "binary_expression",
+          "type": "block",
           "named": true
         },
         {
@@ -696,31 +567,11 @@
           "named": true
         },
         {
-          "type": "curlied_expression",
-          "named": true
-        },
-        {
-          "type": "empty_expression",
-          "named": true
-        },
-        {
           "type": "false",
           "named": true
         },
         {
-          "type": "hex",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_expression",
-          "named": true
-        },
-        {
-          "type": "integer",
           "named": true
         },
         {
@@ -732,11 +583,11 @@
           "named": true
         },
         {
-          "type": "octal",
+          "type": "number",
           "named": true
         },
         {
-          "type": "parenthesized_expression",
+          "type": "qualified_name",
           "named": true
         },
         {
@@ -752,7 +603,15 @@
           "named": true
         },
         {
+          "type": "tuple_expression",
+          "named": true
+        },
+        {
           "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unit",
           "named": true
         }
       ]
@@ -772,26 +631,16 @@
           }
         ]
       },
-      "generic_arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "generic_argument_list",
-            "named": true
-          }
-        ]
-      },
-      "subject": {
+      "operand": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "binary",
+            "type": "binary_expression",
             "named": true
           },
           {
-            "type": "binary_expression",
+            "type": "block",
             "named": true
           },
           {
@@ -799,31 +648,11 @@
             "named": true
           },
           {
-            "type": "curlied_expression",
-            "named": true
-          },
-          {
-            "type": "empty_expression",
-            "named": true
-          },
-          {
             "type": "false",
             "named": true
           },
           {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
             "named": true
           },
           {
@@ -835,11 +664,11 @@
             "named": true
           },
           {
-            "type": "octal",
+            "type": "number",
             "named": true
           },
           {
-            "type": "parenthesized_expression",
+            "type": "qualified_name",
             "named": true
           },
           {
@@ -855,7 +684,15 @@
             "named": true
           },
           {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
             "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
             "named": true
           }
         ]
@@ -872,6 +709,16 @@
         "types": [
           {
             "type": "attribute_list",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
             "named": true
           }
         ]
@@ -895,23 +742,19 @@
         ]
       },
       "value": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
+            "type": "binary_expression",
+            "named": true
           },
           {
-            "type": ")",
-            "named": false
+            "type": "block",
+            "named": true
           },
           {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "binary",
+            "type": "call_expression",
             "named": true
           },
           {
@@ -919,19 +762,27 @@
             "named": true
           },
           {
-            "type": "hex",
+            "type": "if_expression",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "loop_expression",
             "named": true
           },
           {
-            "type": "integer",
+            "type": "match_expression",
             "named": true
           },
           {
-            "type": "octal",
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "qualified_name",
+            "named": true
+          },
+          {
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -941,98 +792,22 @@
           {
             "type": "true",
             "named": true
+          },
+          {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
           }
         ]
       }
     }
-  },
-  {
-    "type": "curlied_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "binary",
-          "named": true
-        },
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "call_expression",
-          "named": true
-        },
-        {
-          "type": "curlied_expression",
-          "named": true
-        },
-        {
-          "type": "empty_expression",
-          "named": true
-        },
-        {
-          "type": "false",
-          "named": true
-        },
-        {
-          "type": "hex",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_expression",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "loop_expression",
-          "named": true
-        },
-        {
-          "type": "match_expression",
-          "named": true
-        },
-        {
-          "type": "octal",
-          "named": true
-        },
-        {
-          "type": "parenthesized_expression",
-          "named": true
-        },
-        {
-          "type": "selector_expression",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "true",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "empty_expression",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "enum_declaration",
@@ -1048,17 +823,27 @@
           }
         ]
       },
-      "generic_parameters": {
+      "name": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
-            "type": "generic_parameter_list",
+            "type": "name",
             "named": true
           }
         ]
       },
-      "variant": {
+      "type_parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_parameter_list",
+            "named": true
+          }
+        ]
+      },
+      "variants": {
         "multiple": false,
         "required": true,
         "types": [
@@ -1071,7 +856,7 @@
     }
   },
   {
-    "type": "fun_declaration",
+    "type": "function_declaration",
     "named": true,
     "fields": {
       "body": {
@@ -1089,7 +874,7 @@
         "required": true,
         "types": [
           {
-            "type": "fun_signature",
+            "type": "function_signature",
             "named": true
           }
         ]
@@ -1097,7 +882,7 @@
     }
   },
   {
-    "type": "fun_signature",
+    "type": "function_signature",
     "named": true,
     "fields": {
       "attributes": {
@@ -1110,12 +895,12 @@
           }
         ]
       },
-      "generic_parameters": {
+      "name": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
-            "type": "generic_parameter_list",
+            "type": "name",
             "named": true
           }
         ]
@@ -1151,137 +936,18 @@
             "named": true
           }
         ]
-      }
-    }
-  },
-  {
-    "type": "generic_argument_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "binary",
-          "named": true
-        },
-        {
-          "type": "false",
-          "named": true
-        },
-        {
-          "type": "hex",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "octal",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "true",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "generic_const_declaration",
-    "named": true,
-    "fields": {
-      "type": {
+      },
+      "type_parameters": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
-            "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "type_tuple",
-            "named": true
-          },
-          {
-            "type": "unit_type",
+            "type": "type_parameter_list",
             "named": true
           }
         ]
       }
     }
-  },
-  {
-    "type": "generic_impl_declaration",
-    "named": true,
-    "fields": {
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "type_tuple",
-            "named": true
-          },
-          {
-            "type": "unit_type",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "generic_parameter_declaration",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "generic_parameter_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "generic_const_declaration",
-          "named": true
-        },
-        {
-          "type": "generic_impl_declaration",
-          "named": true
-        },
-        {
-          "type": "generic_parameter_declaration",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "hex",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "identifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "if_expression",
@@ -1291,10 +957,6 @@
         "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "binary",
-            "named": true
-          },
           {
             "type": "binary_expression",
             "named": true
@@ -1308,19 +970,7 @@
             "named": true
           },
           {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
             "named": true
           },
           {
@@ -1332,11 +982,11 @@
             "named": true
           },
           {
-            "type": "octal",
+            "type": "number",
             "named": true
           },
           {
-            "type": "parenthesized_expression",
+            "type": "qualified_name",
             "named": true
           },
           {
@@ -1352,7 +1002,15 @@
             "named": true
           },
           {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
             "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
             "named": true
           }
         ]
@@ -1388,7 +1046,7 @@
     }
   },
   {
-    "type": "impl_declaration",
+    "type": "impl_base",
     "named": true,
     "fields": {
       "attributes": {
@@ -1401,40 +1059,32 @@
           }
         ]
       },
-      "generic_parameters": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "impl_body",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "type_parameters": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "generic_parameter_list",
-            "named": true
-          }
-        ]
-      },
-      "spec": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "impl_spec",
-            "named": true
-          }
-        ]
-      },
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "type_tuple",
-            "named": true
-          },
-          {
-            "type": "unit_type",
+            "type": "type_parameter_list",
             "named": true
           }
         ]
@@ -1442,7 +1092,7 @@
     }
   },
   {
-    "type": "impl_spec",
+    "type": "impl_body",
     "named": true,
     "fields": {},
     "children": {
@@ -1458,15 +1108,19 @@
           "named": true
         },
         {
-          "type": "fun_declaration",
+          "type": "function_declaration",
           "named": true
         },
         {
-          "type": "impl_declaration",
+          "type": "impl_base",
           "named": true
         },
         {
-          "type": "import",
+          "type": "impl_trait",
+          "named": true
+        },
+        {
+          "type": "import_declaration",
           "named": true
         },
         {
@@ -1489,7 +1143,63 @@
     }
   },
   {
-    "type": "import",
+    "type": "impl_trait",
+    "named": true,
+    "fields": {
+      "attributes": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "attribute_list",
+            "named": true
+          }
+        ]
+      },
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "impl_body",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "trait": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "qualified_name",
+            "named": true
+          }
+        ]
+      },
+      "type_parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_parameter_list",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "import_declaration",
     "named": true,
     "fields": {
       "alias": {
@@ -1499,25 +1209,24 @@
           {
             "type": "as",
             "named": false
+          },
+          {
+            "type": "name",
+            "named": true
           }
         ]
       },
       "path": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
-            "type": "::",
-            "named": false
+            "type": "path",
+            "named": true
           }
         ]
       }
     }
-  },
-  {
-    "type": "integer",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "let_statement",
@@ -1538,6 +1247,10 @@
         "required": true,
         "types": [
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "pattern_enum",
             "named": true
           },
@@ -1550,7 +1263,7 @@
             "named": true
           },
           {
-            "type": "pattern_var",
+            "type": "wildcard",
             "named": true
           }
         ]
@@ -1582,11 +1295,11 @@
         "required": true,
         "types": [
           {
-            "type": "binary",
+            "type": "binary_expression",
             "named": true
           },
           {
-            "type": "binary_expression",
+            "type": "block",
             "named": true
           },
           {
@@ -1594,31 +1307,11 @@
             "named": true
           },
           {
-            "type": "curlied_expression",
-            "named": true
-          },
-          {
-            "type": "empty_expression",
-            "named": true
-          },
-          {
             "type": "false",
             "named": true
           },
           {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
             "named": true
           },
           {
@@ -1630,11 +1323,11 @@
             "named": true
           },
           {
-            "type": "octal",
+            "type": "number",
             "named": true
           },
           {
-            "type": "parenthesized_expression",
+            "type": "qualified_name",
             "named": true
           },
           {
@@ -1650,7 +1343,15 @@
             "named": true
           },
           {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
             "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
             "named": true
           }
         ]
@@ -1666,11 +1367,11 @@
       "required": true,
       "types": [
         {
-          "type": "binary",
+          "type": "binary_expression",
           "named": true
         },
         {
-          "type": "binary_expression",
+          "type": "block",
           "named": true
         },
         {
@@ -1678,31 +1379,11 @@
           "named": true
         },
         {
-          "type": "curlied_expression",
-          "named": true
-        },
-        {
-          "type": "empty_expression",
-          "named": true
-        },
-        {
           "type": "false",
           "named": true
         },
         {
-          "type": "hex",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_expression",
-          "named": true
-        },
-        {
-          "type": "integer",
           "named": true
         },
         {
@@ -1714,11 +1395,11 @@
           "named": true
         },
         {
-          "type": "octal",
+          "type": "number",
           "named": true
         },
         {
-          "type": "parenthesized_expression",
+          "type": "qualified_name",
           "named": true
         },
         {
@@ -1734,14 +1415,22 @@
           "named": true
         },
         {
+          "type": "tuple_expression",
+          "named": true
+        },
+        {
           "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unit",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "match_arm",
+    "type": "match_case",
     "named": true,
     "fields": {
       "pattern": {
@@ -1749,23 +1438,15 @@
         "required": true,
         "types": [
           {
-            "type": "binary",
-            "named": true
-          },
-          {
             "type": "false",
             "named": true
           },
           {
-            "type": "hex",
+            "type": "identifier",
             "named": true
           },
           {
-            "type": "integer",
-            "named": true
-          },
-          {
-            "type": "octal",
+            "type": "number",
             "named": true
           },
           {
@@ -1781,15 +1462,19 @@
             "named": true
           },
           {
-            "type": "pattern_var",
-            "named": true
-          },
-          {
             "type": "string",
             "named": true
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          },
+          {
+            "type": "wildcard",
             "named": true
           }
         ]
@@ -1799,11 +1484,11 @@
         "required": true,
         "types": [
           {
-            "type": "binary",
+            "type": "binary_expression",
             "named": true
           },
           {
-            "type": "binary_expression",
+            "type": "block",
             "named": true
           },
           {
@@ -1811,31 +1496,11 @@
             "named": true
           },
           {
-            "type": "curlied_expression",
-            "named": true
-          },
-          {
-            "type": "empty_expression",
-            "named": true
-          },
-          {
             "type": "false",
             "named": true
           },
           {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
             "named": true
           },
           {
@@ -1847,11 +1512,11 @@
             "named": true
           },
           {
-            "type": "octal",
+            "type": "number",
             "named": true
           },
           {
-            "type": "parenthesized_expression",
+            "type": "qualified_name",
             "named": true
           },
           {
@@ -1867,7 +1532,15 @@
             "named": true
           },
           {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
             "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
             "named": true
           }
         ]
@@ -1875,7 +1548,7 @@
     }
   },
   {
-    "type": "match_arm_list",
+    "type": "match_cases",
     "named": true,
     "fields": {},
     "children": {
@@ -1883,7 +1556,7 @@
       "required": false,
       "types": [
         {
-          "type": "match_arm",
+          "type": "match_case",
           "named": true
         }
       ]
@@ -1893,26 +1566,26 @@
     "type": "match_expression",
     "named": true,
     "fields": {
-      "match_arms": {
+      "cases": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "match_arm_list",
+            "type": "match_cases",
             "named": true
           }
         ]
       },
-      "subject": {
+      "condition": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "binary",
+            "type": "binary_expression",
             "named": true
           },
           {
-            "type": "binary_expression",
+            "type": "block",
             "named": true
           },
           {
@@ -1920,31 +1593,11 @@
             "named": true
           },
           {
-            "type": "curlied_expression",
-            "named": true
-          },
-          {
-            "type": "empty_expression",
-            "named": true
-          },
-          {
             "type": "false",
             "named": true
           },
           {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
             "named": true
           },
           {
@@ -1956,11 +1609,11 @@
             "named": true
           },
           {
-            "type": "octal",
+            "type": "number",
             "named": true
           },
           {
-            "type": "parenthesized_expression",
+            "type": "qualified_name",
             "named": true
           },
           {
@@ -1976,7 +1629,15 @@
             "named": true
           },
           {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
             "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
             "named": true
           }
         ]
@@ -1993,6 +1654,16 @@
         "types": [
           {
             "type": "attribute_list",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
             "named": true
           }
         ]
@@ -2033,33 +1704,7 @@
     }
   },
   {
-    "type": "module_declaration",
-    "named": true,
-    "fields": {
-      "attributes": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "attribute_list",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "module_spec",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "module_spec",
+    "type": "module_body",
     "named": true,
     "fields": {},
     "children": {
@@ -2075,15 +1720,19 @@
           "named": true
         },
         {
-          "type": "fun_declaration",
+          "type": "function_declaration",
           "named": true
         },
         {
-          "type": "impl_declaration",
+          "type": "impl_base",
           "named": true
         },
         {
-          "type": "import",
+          "type": "impl_trait",
+          "named": true
+        },
+        {
+          "type": "import_declaration",
           "named": true
         },
         {
@@ -2106,9 +1755,68 @@
     }
   },
   {
-    "type": "octal",
+    "type": "module_declaration",
     "named": true,
-    "fields": {}
+    "fields": {
+      "attributes": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "attribute_list",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "module_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "number",
+    "named": true,
+    "fields": {
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "binary",
+            "named": true
+          },
+          {
+            "type": "hex",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "octal",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "parameter_declaration",
@@ -2124,6 +1832,16 @@
           },
           {
             "type": "modifier_ref",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
             "named": true
           }
         ]
@@ -2164,83 +1882,15 @@
     }
   },
   {
-    "type": "parenthesized_expression",
+    "type": "path",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
-          "type": "binary",
-          "named": true
-        },
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "call_expression",
-          "named": true
-        },
-        {
-          "type": "curlied_expression",
-          "named": true
-        },
-        {
-          "type": "empty_expression",
-          "named": true
-        },
-        {
-          "type": "false",
-          "named": true
-        },
-        {
-          "type": "hex",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_expression",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "loop_expression",
-          "named": true
-        },
-        {
-          "type": "match_expression",
-          "named": true
-        },
-        {
-          "type": "octal",
-          "named": true
-        },
-        {
-          "type": "parenthesized_expression",
-          "named": true
-        },
-        {
-          "type": "selector_expression",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "true",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
+          "type": "name",
           "named": true
         }
       ]
@@ -2255,6 +1905,10 @@
       "required": true,
       "types": [
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "pattern_enum",
           "named": true
         },
@@ -2267,7 +1921,11 @@
           "named": true
         },
         {
-          "type": "pattern_var",
+          "type": "qualified_name",
+          "named": true
+        },
+        {
+          "type": "wildcard",
           "named": true
         }
       ]
@@ -2279,8 +1937,16 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
         {
           "type": "pattern_enum",
           "named": true
@@ -2294,7 +1960,11 @@
           "named": true
         },
         {
-          "type": "pattern_var",
+          "type": "qualified_name",
+          "named": true
+        },
+        {
+          "type": "wildcard",
           "named": true
         }
       ]
@@ -2309,6 +1979,10 @@
       "required": true,
       "types": [
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "pattern_enum",
           "named": true
         },
@@ -2321,16 +1995,53 @@
           "named": true
         },
         {
-          "type": "pattern_var",
+          "type": "wildcard",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "pattern_var",
+    "type": "qualified_name",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "qualified_name_segment",
+          "named": true
+        },
+        {
+          "type": "type_argument_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "qualified_name_segment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "type_argument_list",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "return_statement",
@@ -2338,14 +2049,14 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "binary",
+          "type": "binary_expression",
           "named": true
         },
         {
-          "type": "binary_expression",
+          "type": "block",
           "named": true
         },
         {
@@ -2353,31 +2064,11 @@
           "named": true
         },
         {
-          "type": "curlied_expression",
-          "named": true
-        },
-        {
-          "type": "empty_expression",
-          "named": true
-        },
-        {
           "type": "false",
           "named": true
         },
         {
-          "type": "hex",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_expression",
-          "named": true
-        },
-        {
-          "type": "integer",
           "named": true
         },
         {
@@ -2389,11 +2080,11 @@
           "named": true
         },
         {
-          "type": "octal",
+          "type": "number",
           "named": true
         },
         {
-          "type": "parenthesized_expression",
+          "type": "qualified_name",
           "named": true
         },
         {
@@ -2409,7 +2100,15 @@
           "named": true
         },
         {
+          "type": "tuple_expression",
+          "named": true
+        },
+        {
           "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unit",
           "named": true
         }
       ]
@@ -2419,16 +2118,26 @@
     "type": "selector_expression",
     "named": true,
     "fields": {
+      "field": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
       "value": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "binary",
+            "type": "binary_expression",
             "named": true
           },
           {
-            "type": "binary_expression",
+            "type": "block",
             "named": true
           },
           {
@@ -2436,31 +2145,11 @@
             "named": true
           },
           {
-            "type": "curlied_expression",
-            "named": true
-          },
-          {
-            "type": "empty_expression",
-            "named": true
-          },
-          {
             "type": "false",
             "named": true
           },
           {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
             "named": true
           },
           {
@@ -2472,11 +2161,11 @@
             "named": true
           },
           {
-            "type": "octal",
+            "type": "number",
             "named": true
           },
           {
-            "type": "parenthesized_expression",
+            "type": "qualified_name",
             "named": true
           },
           {
@@ -2492,7 +2181,15 @@
             "named": true
           },
           {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
             "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
             "named": true
           }
         ]
@@ -2516,15 +2213,19 @@
           "named": true
         },
         {
-          "type": "fun_declaration",
+          "type": "function_declaration",
           "named": true
         },
         {
-          "type": "impl_declaration",
+          "type": "impl_base",
           "named": true
         },
         {
-          "type": "import",
+          "type": "impl_trait",
+          "named": true
+        },
+        {
+          "type": "import_declaration",
           "named": true
         },
         {
@@ -2570,38 +2271,22 @@
           }
         ]
       },
-      "generic_parameters": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "generic_parameter_list",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "trait_declaration",
-    "named": true,
-    "fields": {
-      "generic_parameters": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "generic_parameter_list",
-            "named": true
-          }
-        ]
-      },
-      "spec": {
+      "name": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "trait_declaration_list",
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "type_parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_parameter_list",
             "named": true
           }
         ]
@@ -2609,7 +2294,7 @@
     }
   },
   {
-    "type": "trait_declaration_list",
+    "type": "trait_body",
     "named": true,
     "fields": {},
     "children": {
@@ -2617,14 +2302,50 @@
       "required": false,
       "types": [
         {
-          "type": "trait_fun",
+          "type": "trait_function",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "trait_fun",
+    "type": "trait_declaration",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "trait_body",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "type_parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_parameter_list",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "trait_function",
     "named": true,
     "fields": {
       "body": {
@@ -2642,7 +2363,7 @@
         "required": true,
         "types": [
           {
-            "type": "fun_signature",
+            "type": "function_signature",
             "named": true
           }
         ]
@@ -2650,7 +2371,7 @@
     }
   },
   {
-    "type": "type_arguments",
+    "type": "tuple_expression",
     "named": true,
     "fields": {},
     "children": {
@@ -2658,68 +2379,109 @@
       "required": true,
       "types": [
         {
-          "type": "type_identifier",
+          "type": "binary_expression",
           "named": true
         },
         {
-          "type": "type_tuple",
+          "type": "block",
           "named": true
         },
         {
-          "type": "unit_type",
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "loop_expression",
+          "named": true
+        },
+        {
+          "type": "match_expression",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "qualified_name",
+          "named": true
+        },
+        {
+          "type": "selector_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "tuple_expression",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unit",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "type_identifier",
+    "type": "type_argument_list",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
-          "type": "type_arguments",
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "unit",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "type_tuple",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "type_identifier",
-          "named": true
-        },
-        {
-          "type": "type_tuple",
-          "named": true
-        },
-        {
-          "type": "unit_type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "typealias_declaration",
+    "type": "type_const_declaration",
     "named": true,
     "fields": {
-      "generic_parameters": {
+      "name": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
-            "type": "generic_parameter_list",
+            "type": "name",
             "named": true
           }
         ]
@@ -2745,9 +2507,241 @@
     }
   },
   {
+    "type": "type_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "qualified_name",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_impl_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "type_tuple",
+            "named": true
+          },
+          {
+            "type": "unit_type",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "type_parameter_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "type_const_declaration",
+          "named": true
+        },
+        {
+          "type": "type_impl_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "type_identifier",
+          "named": true
+        },
+        {
+          "type": "type_tuple",
+          "named": true
+        },
+        {
+          "type": "unit_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_tuple",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "type_identifier",
+          "named": true
+        },
+        {
+          "type": "type_tuple",
+          "named": true
+        },
+        {
+          "type": "unit_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typealias_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "type_tuple",
+            "named": true
+          },
+          {
+            "type": "unit_type",
+            "named": true
+          }
+        ]
+      },
+      "type_parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_parameter_list",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "unary_expression",
     "named": true,
     "fields": {
+      "operand": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "loop_expression",
+            "named": true
+          },
+          {
+            "type": "match_expression",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "qualified_name",
+            "named": true
+          },
+          {
+            "type": "selector_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "tuple_expression",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
+            "named": true
+          }
+        ]
+      },
       "operator": {
         "multiple": false,
         "required": true,
@@ -2765,89 +2759,11 @@
             "named": false
           }
         ]
-      },
-      "value": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "binary",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "call_expression",
-            "named": true
-          },
-          {
-            "type": "curlied_expression",
-            "named": true
-          },
-          {
-            "type": "empty_expression",
-            "named": true
-          },
-          {
-            "type": "false",
-            "named": true
-          },
-          {
-            "type": "hex",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_expression",
-            "named": true
-          },
-          {
-            "type": "integer",
-            "named": true
-          },
-          {
-            "type": "loop_expression",
-            "named": true
-          },
-          {
-            "type": "match_expression",
-            "named": true
-          },
-          {
-            "type": "octal",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expression",
-            "named": true
-          },
-          {
-            "type": "selector_expression",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "true",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          }
-        ]
       }
     }
   },
   {
-    "type": "unit_type",
+    "type": "unit",
     "named": true,
     "fields": {}
   },
@@ -2980,6 +2896,10 @@
     "named": false
   },
   {
+    "type": "binary",
+    "named": true
+  },
+  {
     "type": "break",
     "named": false
   },
@@ -3008,12 +2928,24 @@
     "named": false
   },
   {
+    "type": "hex",
+    "named": true
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
     "type": "if",
     "named": false
   },
   {
     "type": "impl",
     "named": false
+  },
+  {
+    "type": "integer",
+    "named": true
   },
   {
     "type": "let",
@@ -3037,6 +2969,14 @@
   },
   {
     "type": "modifier_ref",
+    "named": true
+  },
+  {
+    "type": "name",
+    "named": true
+  },
+  {
+    "type": "octal",
     "named": true
   },
   {
@@ -3068,8 +3008,16 @@
     "named": false
   },
   {
+    "type": "unit_type",
+    "named": true
+  },
+  {
     "type": "use",
     "named": false
+  },
+  {
+    "type": "wildcard",
+    "named": true
   },
   {
     "type": "{",

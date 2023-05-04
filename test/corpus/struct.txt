@@ -41,7 +41,7 @@ struct Foo{}
         (member_declaration_list
             (member_declaration
                 (name)
-                (type (name))
+                (type_identifier (qualified_name (name)))
             )
         )
     )
@@ -50,40 +50,36 @@ struct Foo{}
         (member_declaration_list
             (member_declaration
                 (name)
-                (type (name))
+                (type_identifier (qualified_name (name)))
             )
             (member_declaration
                 (name)
-                (type (name))
-            )
-        )
-    )
-    (struct_declaration
-        (name)
-        (generic_parameter_list
-          (generic_parameter_declaration (name))
-        )
-        (member_declaration_list
-            (member_declaration
-                (name)
-                (type (name))
+                (type_identifier (qualified_name (name)))
             )
         )
     )
     (struct_declaration
         (name)
-        (generic_parameter_list
-          (generic_parameter_declaration (name))
-          (generic_parameter_declaration (name))
+        (type_parameter_list (name))
+        (member_declaration_list
+            (member_declaration
+                (name)
+                (type_identifier (qualified_name (name)))
+            )
+        )
+    )
+    (struct_declaration
+        (name)
+        (type_parameter_list
+          (name)
+          (name)
         )
         (member_declaration_list
             (member_declaration
                 (name)
-                (type 
-                    (type_tuple 
-                        (type (name))
-                        (type (name))
-                    )
+                (type_tuple 
+                    (type_identifier (qualified_name (name)))
+                    (type_identifier (qualified_name (name)))
                 )
             )
         )
@@ -91,8 +87,8 @@ struct Foo{}
     (struct_declaration
         (attribute_list
             (attribute 
-                (name)
-                (attribute_argument_list (name))
+                (path (name))
+                (attribute_argument (name))
             )
         )
         (name)

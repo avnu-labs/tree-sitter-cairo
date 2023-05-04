@@ -17,39 +17,37 @@ fn foo() {
 ---
 
 (source_file
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
         )
         (block
             (if_expression
                 (true)
-                (if_then (integer))
-                (if_else (integer))
+                (block (number (integer)))
+                (block (number (integer)))
             )
             (if_expression
                 (true)
-                (if_then (integer))
+                (block (number (integer)))
             )
             (if_expression
                 (true)
-                (if_then (integer))
-                (if_else
-                    (if_expression
-                        (true)
-                        (if_then (integer))
-                        (if_else (integer))
-                    )
+                (block (number (integer)))
+                (if_expression
+                    (true)
+                    (block (number (integer)))
+                    (block (number (integer)))
                 )
             )
             (if_expression
                 (if_expression
                     (true)
-                    (if_then (true))
-                    (if_else (false))
+                    (block (true))
+                    (block (false))
                 )
-                (if_then (false))
+                (block (false))
             )
         )
     )
@@ -77,57 +75,52 @@ fn foo() {
 ---
 
 (source_file
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
         )
         (block
             (match_expression
-                (name)
-                (match_arm_list
-                    (match_arm
-                        (integer)
-                        (integer)
+                (qualified_name (name))
+                (match_cases
+                    (match_case
+                        (number (integer))
+                        (number (integer))
                     )
-                    (match_arm
+                    (match_case
                         (true)
-                        (empty_expression)
+                        (block)
                     )
-                    (match_arm
+                    (match_case
                         (false)
-                        (empty_expression)
+                        (block)
                     )
-                    (match_arm
+                    (match_case
                         (pattern_enum 
-                            (qualified_name
-                                (name)
-                                (name)
-                            )
+                            (qualified_name (qualified_name_segment (name)) (name)) 
                             (wildcard)
                         )
-                        (empty_expression)
+                        (block)
                     )
-                    (match_arm
+                    (match_case
                         (pattern_struct 
-                            (qualified_name
-                                (name)
-                            )
+                            (qualified_name (name))
                             (name)
                             (name)
                         )
-                        (empty_expression)
+                        (block)
                     )
-                    (match_arm
+                    (match_case
                         (pattern_tuple
-                            (name)
-                            (name)
+                            (identifier)
+                            (identifier)
                         )
-                        (empty_expression)
+                        (block)
                     )
-                    (match_arm
+                    (match_case
                         (wildcard)
-                        (empty_expression)
+                        (block)
                     )
                 )
             )
@@ -150,19 +143,19 @@ fn foo() {
 ---
 
 (source_file
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
         )
         (block
             (let_statement 
-                (name)
-                (integer)
+                (identifier)
+                (number (integer))
             )
             (let_statement 
                 (wildcard)
-                (integer)
+                (number (integer))
             )
             (let_statement 
                 (pattern_struct 
@@ -170,22 +163,22 @@ fn foo() {
                     (name)
                     (name)
                 )
-                (name)
+                (qualified_name (name))
             )
             (let_statement 
                 (pattern_enum
                     (qualified_name (name))
-                    (name)
-                    (name)
+                    (identifier)
+                    (identifier)
                 )
-                (name)
+                (qualified_name (name))
             )
             (let_statement 
                 (pattern_tuple
-                    (name)
-                    (name)
+                    (identifier)
+                    (identifier)
                 )
-                (parenthesized_expression
+                (tuple_expression
                     (true)
                     (true)
                 )
@@ -209,18 +202,18 @@ fn foo() {
 ---
 
 (source_file
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
         )
         (block
-            (unary_expression (name))
-            (unary_expression (name))
-            (unary_expression (name))
+            (unary_expression (qualified_name (name)))
+            (unary_expression (qualified_name (name)))
+            (unary_expression (qualified_name (name)))
             (binary_expression
-                (unary_expression (name))
-                (integer)
+                (unary_expression (qualified_name (name)))
+                (number (integer))
             )
         )
     )
@@ -250,51 +243,51 @@ fn foo() {
 ---
 
 (source_file
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
         )
         (block
             (binary_expression
-                (integer)
-                (integer)
+                (number (integer))
+                (number (integer))
             )
             (assignment_statement
                 (name)
-                (integer)
+                (number (integer))
             )
             (binary_expression
-                (integer)
-                (integer)
+                (number (integer))
+                (number (integer))
             )
             (assignment_statement
                 (name)
-                (integer)
+                (number (integer))
             )
             (binary_expression
-                (integer)
-                (integer)
+                (number (integer))
+                (number (integer))
             )
             (assignment_statement
                 (name)
-                (integer)
+                (number (integer))
             )
             (binary_expression
-                (integer)
-                (integer)
+                (number (integer))
+                (number (integer))
             )
             (assignment_statement
                 (name)
-                (integer)
+                (number (integer))
             )
             (binary_expression
-                (integer)
-                (integer)
+                (number (integer))
+                (number (integer))
             )
             (assignment_statement
                 (name)
-                (integer)
+                (number (integer))
             )
         )
     )
@@ -313,25 +306,30 @@ fn foo() {
 ---
 
 (source_file
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
         )
         (block
-            (call_expression (name) (argument_list))
             (call_expression 
-                (name)
+                (qualified_name (name))
+                (argument_list)
+            )
+            (call_expression 
+                (qualified_name (name))
                 (argument_list
-                    (integer)
-                    (integer)
-                    (integer)
+                    (number (integer))
+                    (number (integer))
+                    (number (integer))
                 )    
             )
             (call_expression 
-                (name)
-                (generic_argument_list (integer))
-                (argument_list (integer)) 
+                (qualified_name 
+                    (name) 
+                    (type_argument_list (number (integer)))
+                )
+                (argument_list (number (integer))) 
             )
         )
     )
@@ -349,15 +347,15 @@ fn foo() {
 ---
 
 (source_file
-    (fun_declaration
-        (fun_signature
+    (function_declaration
+        (function_signature
             (name)
             (parameter_list)
         )
         (block
             (selector_expression
                 (selector_expression
-                    (name)
+                    (qualified_name (name))
                     (name)
                 )
                 (name)
@@ -365,37 +363,12 @@ fn foo() {
             (selector_expression
                 (call_expression
                     (selector_expression
-                        (name)
+                        (qualified_name (name))
                         (name)
                     )
                     (argument_list)
                 )
                 (name)
-            )
-        )
-    )
-)
-
-============================
-Comparison operator expression
-============================
-
-fn foo() {
-    assert(ERC20::total_supply() == u256_from_felt252(0), 'Supply should eq 0');
-}
-
----
-
-(source_file
-    (fun_declaration
-        (fun_signature
-            (name)
-            (parameter_list)
-        )
-        (block
-            (binary_expression
-                (call_expression (name))
-                (call_expression (name))
             )
         )
     )

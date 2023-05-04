@@ -1,5 +1,5 @@
 ==================
-Mod declaration
+Module declaration
 ==================
 
 mod foo {
@@ -11,11 +11,11 @@ mod foo {
 (source_file
     (module_declaration
         (name)
-        (module_spec
+        (module_body
             (const_declaration
                 (name)
-                (type (name))
-                (integer)
+                (type_identifier (qualified_name (name)))
+                (number (integer))
             )
         )
     )

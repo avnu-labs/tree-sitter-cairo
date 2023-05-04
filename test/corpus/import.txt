@@ -11,25 +11,21 @@ use foo::bar as bar2;
 ---
 
 (source_file
-    (import
-        (qualified_name (name))
+    (import_declaration
+        (path (name))
     )
-    (import
-        (qualified_name (name) (name))
+    (import_declaration
+        (path (name) (name))
     )
-    (import
-        (qualified_name (name) (name) (name))
+    (import_declaration
+        (path (name) (name) (name))
     )
-    (import
-        (qualified_name (name))
-        (import_as
-            (name)
-        )
+    (import_declaration
+        (path (name))
+        (name)
     )
-    (import
-        (qualified_name (name) (name))
-        (import_as
-            (name)
-        )
+    (import_declaration
+        (path (name) (name))
+        (name)
     )
 )

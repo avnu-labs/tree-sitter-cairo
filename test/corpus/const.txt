@@ -21,58 +21,58 @@ const foo: felt252 = 'hello';
 (source_file
     (const_declaration
         (name)
-        (type (name))
-        (integer)
+        (type_identifier (qualified_name (name)))
+        (number (integer))
     )
     (const_declaration
         (name)
-        (type (name))
-        (hex)
+        (type_identifier (qualified_name (name)))
+        (number (hex))
     )
     (const_declaration
         (name)
-        (type (name))
-        (octal)
+        (type_identifier (qualified_name (name)))
+        (number (octal))
     )
     (const_declaration
         (name)
-        (type (name))
-        (binary)
+        (type_identifier (qualified_name (name)))
+        (number (binary))
     )
     (const_declaration
         (name)
-        (type (name))
-        (integer)
+        (type_identifier (qualified_name (name)))
+        (number (integer))
     )
     (const_declaration
         (name)
-        (type (name))
-        (integer)
+        (type_identifier (qualified_name (name)))
+        (number (integer))
     )
     (const_declaration
         (name)
-        (type (name))
+        (type_identifier (qualified_name (name)))
         (true)
     )
     (const_declaration
         (name)
-        (type (name))
+        (type_identifier (qualified_name (name)))
         (false)
     )
     (const_declaration
         (name)
-        (type 
-            (type_tuple
-                (type (name))
-                (type (name))
-            )
+        (type_tuple
+            (type_identifier (qualified_name (name)))
+            (type_identifier (qualified_name (name)))
         )
-        (integer)
-        (integer)
+        (tuple_expression
+            (number (integer))
+            (number (integer))
+        )
     )
     (const_declaration
         (name)
-        (type (name))
+        (type_identifier (qualified_name (name)))
         (string)
     )
 )
