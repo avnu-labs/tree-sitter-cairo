@@ -2256,6 +2256,16 @@
     "type": "trait_declaration",
     "named": true,
     "fields": {
+      "attributes": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "attribute_list",
+            "named": true
+          }
+        ]
+      },
       "body": {
         "multiple": false,
         "required": true,
@@ -2712,6 +2722,11 @@
     "fields": {}
   },
   {
+    "type": "unit_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "!",
     "named": false
   },
@@ -2950,10 +2965,6 @@
   {
     "type": "type",
     "named": false
-  },
-  {
-    "type": "unit_type",
-    "named": true
   },
   {
     "type": "use",
