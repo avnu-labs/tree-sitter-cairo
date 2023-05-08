@@ -343,7 +343,7 @@ module.exports = grammar({
         )
       ),
 
-    loop_expression: ($) => seq("loop", "{", $._expression, "}"),
+    loop_expression: ($) => seq("loop", $.block),
 
     match_expression: ($) =>
       seq(
@@ -425,7 +425,7 @@ module.exports = grammar({
         optional(seq("::", $.type_argument_list))
       ),
     qualified_name_segment: ($) => seq($.name, optional($.type_argument_list)),
-    type_argument_list: ($) => seq("<", repeat($._literal_expression), ">"),
+    type_argument_list: ($) => seq("<", list1($._literal_expression, ","), ">"),
 
     wildcard: ($) => "_",
 

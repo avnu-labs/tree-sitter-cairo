@@ -54,6 +54,46 @@ fn foo() {
 )
 
 ============================
+Loop expression
+============================
+
+fn foo() {
+    loop {}
+
+    let mut y = 0;
+    loop {
+        y *= 2;
+    }
+}
+
+---
+
+(source_file
+    (function_declaration
+        (function_signature
+            (name)
+            (parameter_list)
+        )
+        (block
+            (loop_expression (block))
+            (let_statement
+                (modifier_mut)
+                (identifier)
+                (number (integer))
+            )
+            (loop_expression
+                (block
+                    (assignment_statement
+                        (name)
+                        (number (integer))
+                    )
+                )
+            )
+        )
+    )
+)
+
+============================
 Match expression
 ============================
 
