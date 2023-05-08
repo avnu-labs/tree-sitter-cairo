@@ -23,10 +23,7 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, /\s/],
 
-  conflicts: ($) => [
-    [$.block],
-    [$.qualified_name, $.qualified_name_segment],
-  ],
+  conflicts: ($) => [[$.block], [$.qualified_name, $.qualified_name_segment]],
 
   inline: ($) => [
     $._declaration,
@@ -110,6 +107,7 @@ module.exports = grammar({
 
     trait_declaration: ($) =>
       seq(
+        field("attributes", repeat($.attribute_list)),
         "trait",
         field("name", $.name),
         field("type_parameters", optional($.type_parameter_list)),
@@ -123,7 +121,7 @@ module.exports = grammar({
     trait_function: ($) =>
       seq(
         field("signature", $.function_signature),
-        choice(field("body", optional($.block)), terminator)
+        choice(field("body", $.block), terminator)
       ),
 
     struct_declaration: ($) =>
@@ -367,7 +365,7 @@ module.exports = grammar({
       prec(
         PREC.primary,
         seq(
-          field("operand", choice($._expression)),
+          field("operand", $._expression),
           field("arguments", $.argument_list)
         )
       ),
@@ -468,7 +466,7 @@ module.exports = grammar({
     // ******************************************
     true: ($) => "true",
     false: ($) => "false",
-    unit: ($) => seq("(", ")"),
+    unit: ($) => token(seq("(", ")")),
     number: ($) =>
       seq(
         field("value", choice($.integer, $.hex, $.octal, $.binary)),

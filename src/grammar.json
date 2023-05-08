@@ -306,6 +306,17 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "FIELD",
+          "name": "attributes",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "attribute_list"
+            }
+          }
+        },
+        {
           "type": "STRING",
           "value": "trait"
         },
@@ -381,16 +392,8 @@
               "type": "FIELD",
               "name": "body",
               "content": {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "block"
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "block"
               }
             },
             {
@@ -1923,13 +1926,8 @@
             "type": "FIELD",
             "name": "operand",
             "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_expression"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "_expression"
             }
           },
           {
@@ -2705,17 +2703,20 @@
       "value": "false"
     },
     "unit": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
     },
     "number": {
       "type": "SEQ",
