@@ -8,3 +8,7 @@ examples
 /target/
 .build/
 /.idea/
+
+resources/*
+!resources/grammar_spec.tex
+!resources/generated
