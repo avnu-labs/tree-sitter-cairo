@@ -75,7 +75,7 @@
              & | & qualified\_name \\
              & | & () \\ \\
              
-        type\_parameters & := & \kw{l} type\_parameter [ \kw{,} type\_parameter ]* \kw{b} \\
+        type\_parameters & := & \kw{<} type\_parameter [ \kw{,} type\_parameter ]* \kw{>} \\
         type\_parameter & := & \kw{impl} name \kw{:} qualified\_name \\
                         & | & \kw{const} name \kw{:} qualified\_name \\
                         & | & name \\ \\
