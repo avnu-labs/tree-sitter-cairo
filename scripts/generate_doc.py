@@ -25,14 +25,14 @@ def crop(image):
                 return row
         return 0
     
-    row = find_non_empty_row() + 200
+    row = find_non_empty_row()
     return image.crop((0,0,width,row))
     
 cropped_images = [ crop(image) for image in images ]
 
 total_width = max([image.width for image in cropped_images])
-total_height = sum([image.height for image in cropped_images])
-final_image = Image.new("RGB", (total_width, total_height))
+total_height = sum([image.height for image in cropped_images]) + 200
+final_image = Image.new("RGB", (total_width, total_height), color=(255,255,255))
 
 offset = 0
 for image in cropped_images:
