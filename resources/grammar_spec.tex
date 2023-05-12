@@ -58,7 +58,7 @@
 
         function\_declaration & := & function\_signature block \\
         function\_signature & := & \kw{fn} name [ type\_parameters ]$^?$ ( function\_parameters ) \\
-        function\_parameters & := & [ function\_parameter \kw{,} ]* [ function\_parameter ]$^?$ \\  
+        function\_parameters & := & [ \kw{\&self} ]$^?$ [ function\_parameter \kw{,} ]* [ function\_parameter ]$^?$ \\  
         function\_parameter & := & [ modifier ]$^?$ name \kw{:} type \\ \\
 
     \end{tabular}
@@ -96,14 +96,13 @@
         block & := & \{ [ statement ]* expression [ \kw{;} ]$^?$ \} \\ \\
         
         statement & := & \kw{let} [ modifier ] pattern\_expression \kw{=} expression \kw{;} \\
-                  & | & \kw{return} expression \kw{;} \\
-                  & | & \kw{break} expression \kw{;} \\
                   & | & expression \kw{;} \\ \\
 
         expression & := & block \\
                    & | & simple\_expression \\ \\
 
         simple\_expression  & := & ( expression [\kw{,} expression ]* ) \\
+                           & | & return\_expression \\
                            & | & loop\_expression \\
                            & | & if\_expression \\
                            & | & match\_expression \\
@@ -113,6 +112,9 @@
                            & | & binary\_expression \\
                            & | & identifier \\
                            & | & literal \\ \\
+
+        return\_expression & := & \kw{return} expression \\
+                           & | & \kw{break} expression \\ \\
 
         pattern\_expression & := & ( pattern\_expression [\kw{,} pattern\_expression ]* ) \\
                            & | & qualified\_name \{ pattern\_expression [ \kw{,} pattern\_expression ]* \} \\
@@ -150,8 +152,8 @@
                            & | & expression \kw{<} expression \\
                            & | & expression \kw{<=} expression \\
                            & | & expression \kw{>} expression \\
-                           & | & expression \kw{\>=} expression \\
-                           & | & expression \kw{=} expression \\ \\
+                           & | & expression \kw{>=} expression \\
+                           & | & expression \kw{==} expression \\ \\
     \end{tabular}
 \end{table}
 
@@ -161,7 +163,6 @@
 \begin{table}[H]
     \centering
     \begin{tabular}{lcl}
-
         name & := & [a-zA-Z][a-zA-Z0-9\_]* \\
         qualified\_name & := &  [ qualified\_name\_segment \, \kw{::} ]* qualified\_name\_segment  \\
         qualified\_name\_segment & := & name [ type\_parameters ]$^?$ \\ \\
@@ -170,16 +171,17 @@
 
         identifier & := & name \\ \\
 
+        modifier & := & \kw{mut} | \kw{ref} \\ \\
+
         literal & := & bool \\
                 & | & string \\
                 & | & number \\
                 & | & () \\ \\
 
         bool & := & true | false \\
-        string & := & '[\^']*' \\
+        string & := & '[\string^']*' \\
         number & := & [ integer | hex | octal | bin ] [ number\_type ]$^?$ \\
         number\_type & := & \_u8 | \_u16 | \_u32 | ... \\ \\
-
     \end{tabular}
 \end{table}
 
