@@ -389,6 +389,7 @@ fn foo() {
     a();
     a(8,9,10);
     a::<1>(8);
+    a(x = 9, y = 8);
 }
 
 ---
@@ -426,6 +427,19 @@ fn foo() {
                     )
                     (arguments 
                         (argument (number (integer)))
+                    ) 
+                )
+            )
+            (statement
+                (call_expression 
+                    (qualified_name (name))
+                    (arguments 
+                        (argument 
+                            (named_argument (name) (number (integer)))
+                        )
+                        (argument 
+                            (named_argument (name) (number (integer)))
+                        )
                     ) 
                 )
             )
