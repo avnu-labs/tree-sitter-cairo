@@ -14,7 +14,7 @@ fn foo() {
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
         )
         (block
             (comment)

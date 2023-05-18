@@ -3,15 +3,15 @@ If expression
 ============================
 
 fn foo() {
-    if true { 8 } else { 9 };
+    if true { 8 } else { 9 }
 
-    if true { 8 };
+    if true { 8 }
 
     if true { 8 }
     else if true { 8 }
-    else { 9 };
+    else { 9 }
 
-    if if true { true } else { false } { false };
+    if if true { true } else { false } { false }
 }
 
 ---
@@ -20,34 +20,42 @@ fn foo() {
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
         )
         (block
-            (if_expression
-                (true)
-                (block (number (integer)))
-                (block (number (integer)))
-            )
-            (if_expression
-                (true)
-                (block (number (integer)))
-            )
-            (if_expression
-                (true)
-                (block (number (integer)))
+            (statement
                 (if_expression
                     (true)
-                    (block (number (integer)))
-                    (block (number (integer)))
+                    (block (tail_expression (number (integer))))
+                    (block (tail_expression (number (integer))))
                 )
             )
-            (if_expression
+            (statement
                 (if_expression
                     (true)
-                    (block (true))
-                    (block (false))
+                    (block (tail_expression (number (integer))))
                 )
-                (block (false))
+            )
+            (statement
+                (if_expression
+                    (true)
+                    (block (tail_expression (number (integer))))
+                    (if_expression
+                        (true)
+                        (block (tail_expression (number (integer))))
+                        (block (tail_expression (number (integer))))
+                    )
+                )
+            )
+            (tail_expression
+                (if_expression
+                    (if_expression
+                        (true)
+                        (block (tail_expression (true)))
+                        (block (tail_expression (false)))
+                    )
+                    (block (tail_expression (false)))
+                )
             )
         )
     )
@@ -63,7 +71,7 @@ fn foo() {
     let mut y = 0;
     loop {
         y *= 2;
-    }
+    };
 }
 
 ---
@@ -72,20 +80,26 @@ fn foo() {
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
         )
         (block
-            (loop_expression (block))
-            (let_statement
-                (modifier_mut)
-                (identifier)
-                (number (integer))
+            (statement (loop_expression (block)))
+            (statement
+                (let_statement
+                    (modifier_mut)
+                    (identifier)
+                    (number (integer))
+                )
             )
-            (loop_expression
-                (block
-                    (assignment_statement
-                        (name)
-                        (number (integer))
+            (statement
+                (loop_expression
+                    (block
+                        (statement
+                            (assignment_statement
+                                (name)
+                                (number (integer))
+                            )
+                        )
                     )
                 )
             )
@@ -118,49 +132,51 @@ fn foo() {
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
         )
         (block
-            (match_expression
-                (qualified_name (name))
-                (match_cases
-                    (match_case
-                        (number (integer))
-                        (number (integer))
-                    )
-                    (match_case
-                        (true)
-                        (block)
-                    )
-                    (match_case
-                        (false)
-                        (block)
-                    )
-                    (match_case
-                        (pattern_enum 
-                            (qualified_name (qualified_name_segment (name)) (name)) 
+            (statement
+                (match_expression
+                    (qualified_name (name))
+                    (match_cases
+                        (match_case
+                            (number (integer))
+                            (number (integer))
+                        )
+                        (match_case
+                            (true)
+                            (block)
+                        )
+                        (match_case
+                            (false)
+                            (block)
+                        )
+                        (match_case
+                            (pattern_enum 
+                                (qualified_name (qualified_name_segment (name)) (name)) 
+                                (wildcard)
+                            )
+                            (block)
+                        )
+                        (match_case
+                            (pattern_struct 
+                                (qualified_name (name))
+                                (name)
+                                (name)
+                            )
+                            (block)
+                        )
+                        (match_case
+                            (pattern_tuple
+                                (identifier)
+                                (identifier)
+                            )
+                            (block)
+                        )
+                        (match_case
                             (wildcard)
+                            (block)
                         )
-                        (block)
-                    )
-                    (match_case
-                        (pattern_struct 
-                            (qualified_name (name))
-                            (name)
-                            (name)
-                        )
-                        (block)
-                    )
-                    (match_case
-                        (pattern_tuple
-                            (identifier)
-                            (identifier)
-                        )
-                        (block)
-                    )
-                    (match_case
-                        (wildcard)
-                        (block)
                     )
                 )
             )
@@ -186,41 +202,51 @@ fn foo() {
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
         )
         (block
-            (let_statement 
-                (identifier)
-                (number (integer))
+            (statement
+                (let_statement 
+                    (identifier)
+                    (number (integer))
+                )
             )
-            (let_statement 
-                (wildcard)
-                (number (integer))
+            (statement
+                (let_statement 
+                    (wildcard)
+                    (number (integer))
+                )
             )
-            (let_statement 
-                (pattern_struct 
+            (statement
+                (let_statement 
+                    (pattern_struct 
+                        (qualified_name (name))
+                        (name)
+                        (name)
+                    )
                     (qualified_name (name))
-                    (name)
-                    (name)
                 )
-                (qualified_name (name))
             )
-            (let_statement 
-                (pattern_enum
+            (statement
+                (let_statement 
+                    (pattern_enum
+                        (qualified_name (name))
+                        (identifier)
+                        (identifier)
+                    )
                     (qualified_name (name))
-                    (identifier)
-                    (identifier)
                 )
-                (qualified_name (name))
             )
-            (let_statement 
-                (pattern_tuple
-                    (identifier)
-                    (identifier)
-                )
-                (tuple_expression
-                    (true)
-                    (true)
+            (statement
+                (let_statement 
+                    (pattern_tuple
+                        (identifier)
+                        (identifier)
+                    )
+                    (tuple_expressions
+                        (tuple_expression (true))
+                        (tuple_expression (true))
+                    )
                 )
             )
         )
@@ -245,15 +271,17 @@ fn foo() {
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
         )
         (block
-            (unary_expression (qualified_name (name)))
-            (unary_expression (qualified_name (name)))
-            (unary_expression (qualified_name (name)))
-            (binary_expression
-                (unary_expression (qualified_name (name)))
-                (number (integer))
+            (statement (unary_expression (qualified_name (name))))
+            (statement (unary_expression (qualified_name (name))))
+            (statement (unary_expression (qualified_name (name))))
+            (statement
+                (binary_expression
+                    (unary_expression (qualified_name (name)))
+                    (number (integer))
+                )
             )
         )
     )
@@ -286,48 +314,68 @@ fn foo() {
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
         )
         (block
-            (binary_expression
-                (number (integer))
-                (number (integer))
+            (statement
+                (binary_expression
+                    (number (integer))
+                    (number (integer))
+                )
             )
-            (assignment_statement
-                (name)
-                (number (integer))
+            (statement
+                (assignment_statement
+                    (name)
+                    (number (integer))
+                )
             )
-            (binary_expression
-                (number (integer))
-                (number (integer))
+            (statement
+                (binary_expression
+                    (number (integer))
+                    (number (integer))
+                )
             )
-            (assignment_statement
-                (name)
-                (number (integer))
+            (statement
+                (assignment_statement
+                    (name)
+                    (number (integer))
+                )
             )
-            (binary_expression
-                (number (integer))
-                (number (integer))
+            (statement
+                (binary_expression
+                    (number (integer))
+                    (number (integer))
+                )
             )
-            (assignment_statement
-                (name)
-                (number (integer))
+            (statement
+                (assignment_statement
+                    (name)
+                    (number (integer))
+                )
             )
-            (binary_expression
-                (number (integer))
-                (number (integer))
+            (statement
+                (binary_expression
+                    (number (integer))
+                    (number (integer))
+                )
             )
-            (assignment_statement
-                (name)
-                (number (integer))
+            (statement
+                (assignment_statement
+                    (name)
+                    (number (integer))
+                )
             )
-            (binary_expression
-                (number (integer))
-                (number (integer))
+            (statement
+                (binary_expression
+                    (number (integer))
+                    (number (integer))
+                )
             )
-            (assignment_statement
-                (name)
-                (number (integer))
+            (statement
+                (assignment_statement
+                    (name)
+                    (number (integer))
+                )
             )
         )
     )
@@ -349,27 +397,37 @@ fn foo() {
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
         )
         (block
-            (call_expression 
-                (qualified_name (name))
-                (argument_list)
-            )
-            (call_expression 
-                (qualified_name (name))
-                (argument_list
-                    (number (integer))
-                    (number (integer))
-                    (number (integer))
-                )    
-            )
-            (call_expression 
-                (qualified_name 
-                    (name) 
-                    (type_argument_list (number (integer)))
+            (statement
+                (call_expression 
+                    (qualified_name (name))
+                    (arguments)
                 )
-                (argument_list (number (integer))) 
+            )
+            (statement
+                (call_expression 
+                    (qualified_name (name))
+                    (arguments
+                        (argument (number (integer)))
+                        (argument (number (integer)))
+                        (argument (number (integer)))
+                    )    
+                )
+            )
+            (statement
+                (call_expression 
+                    (qualified_name 
+                        (name) 
+                        (type_arguments 
+                            (type_argument (number (integer)))
+                        )
+                    )
+                    (arguments 
+                        (argument (number (integer)))
+                    ) 
+                )
             )
         )
     )
@@ -390,25 +448,63 @@ fn foo() {
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
         )
         (block
-            (selector_expression
+            (statement
                 (selector_expression
-                    (qualified_name (name))
-                    (name)
-                )
-                (name)
-            )
-            (selector_expression
-                (call_expression
                     (selector_expression
                         (qualified_name (name))
                         (name)
                     )
-                    (argument_list)
+                    (name)
                 )
-                (name)
+            )
+            (statement
+                (selector_expression
+                    (call_expression
+                        (selector_expression
+                            (qualified_name (name))
+                            (name)
+                        )
+                        (arguments)
+                    )
+                    (name)
+                )
+            )
+        )
+    )
+)
+
+============================
+Indexing expression
+============================
+
+fn foo() {
+    a[0];
+    a[x];
+}
+
+---
+
+(source_file
+    (function_declaration
+        (function_signature
+            (name)
+            (parameters)
+        )
+        (block
+            (statement
+                (index_expression
+                    (qualified_name (name))
+                    (number (integer))
+                )
+            )
+            (statement
+                (index_expression
+                    (qualified_name (name))
+                    (qualified_name (name))
+                )
             )
         )
     )

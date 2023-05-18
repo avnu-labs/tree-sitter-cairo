@@ -18,10 +18,10 @@ enum Foo {
 (source_file
     (enum_declaration
         (name)
-        (member_declaration_list
+        (member_declarations
             (member_declaration
                 (name)
-                (unit_type)
+                (type_tuple)
             )
             (member_declaration
                 (name)
@@ -37,17 +37,17 @@ enum Foo {
         )
     )
     (enum_declaration
-        (attribute_list
-            (attribute
+        (attribute
+            (attribute_value
                 (path (name))
                 (attribute_argument (name))
             )
         )
         (name)
-        (member_declaration_list
+        (member_declarations
             (member_declaration
                 (name)
-                (unit_type)
+                (type_tuple)
             )
         )
     )

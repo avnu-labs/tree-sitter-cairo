@@ -15,15 +15,15 @@ fn foo() -> (u32, u32) {}
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
         )
         (block)
     )
     (function_declaration
         (function_signature
             (name)
-            (parameter_list
-                (parameter_declaration
+            (parameters
+                (parameter
                     (name)
                     (type_identifier (qualified_name (name)))
                 )
@@ -34,12 +34,12 @@ fn foo() -> (u32, u32) {}
     (function_declaration
         (function_signature
             (name)
-            (parameter_list
-                (parameter_declaration
+            (parameters
+                (parameter
                     (name)
                     (type_identifier (qualified_name (name)))
                 )
-                (parameter_declaration
+                (parameter
                     (name)
                     (type_identifier (qualified_name (name)))
                 )
@@ -50,8 +50,8 @@ fn foo() -> (u32, u32) {}
     (function_declaration
         (function_signature
             (name)
-            (parameter_list
-                (parameter_declaration
+            (parameters
+                (parameter
                     (name)
                     (type_identifier 
                         (qualified_name 
@@ -60,7 +60,7 @@ fn foo() -> (u32, u32) {}
                         )
                     )
                 )
-                (parameter_declaration
+                (parameter
                     (name)
                     (type_identifier (qualified_name (name)))
                 )
@@ -71,7 +71,7 @@ fn foo() -> (u32, u32) {}
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
             (type_identifier (qualified_name (name)))
         )
         (block)
@@ -79,7 +79,7 @@ fn foo() -> (u32, u32) {}
     (function_declaration
         (function_signature
             (name)
-            (parameter_list)
+            (parameters)
             (type_tuple 
                 (type_identifier (qualified_name (name)))
                 (type_identifier (qualified_name (name)))
@@ -104,9 +104,9 @@ fn foo<const T: usize>() {}
     (function_declaration
         (function_signature
             (name)
-            (type_parameter_list (name))
-            (parameter_list
-                (parameter_declaration 
+            (type_parameters (name))
+            (parameters
+                (parameter 
                     (name) 
                     (type_identifier (qualified_name (name)))
                 )
@@ -117,32 +117,32 @@ fn foo<const T: usize>() {}
     (function_declaration
         (function_signature
             (name)
-            (type_parameter_list
+            (type_parameters
                 (name)
-                (type_impl_declaration 
+                (type_parameter_impl 
                     (name) 
                     (type_identifier
                         (qualified_name (name))
-                        (type_parameters
-                            (type_identifier (qualified_name (name)))
+                        (type_arguments
+                            (type_argument (qualified_name (name)))
                         )
                     )
                 )
             )
-            (parameter_list)
+            (parameters)
         )
         (block)
     )
         (function_declaration
         (function_signature
             (name)
-            (type_parameter_list
-                (type_const_declaration 
+            (type_parameters
+                (type_parameter_const
                     (name) 
                     (type_identifier (qualified_name (name)))
                 )
             )
-            (parameter_list)
+            (parameters)
         )
         (block)
     )

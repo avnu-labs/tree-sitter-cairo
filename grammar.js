@@ -1,12 +1,16 @@
 const PREC = {
-    name: 8,
-    primary: 7,
-    unary: 6,
-    multiplicative: 5,
-    additive: 4,
-    comparative: 3,
+    name: 10,
+    primary: 9,
+    unary: 8,
+    multiplicative: 7,
+    additive: 6,
+    comparative: 5,
+    bit_and: 4,
+    bit_or: 3,
     and: 2,
     or: 1,
+    tail: 0,
+    statement: -1,
   },
   unary_operator = ['!', '*', '-'],
   multiplicative_operators = ["*", "/", "%"],
@@ -23,7 +27,9 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, /\s/],
 
-  conflicts: ($) => [[$.block], [$.qualified_name, $.qualified_name_segment]],
+  conflicts: ($) => [
+    [$.qualified_name, $.qualified_name_segment],
+  ],
 
   inline: ($) => [
     $._declaration,
@@ -67,7 +73,7 @@ module.exports = grammar({
 
     module_declaration: ($) =>
       seq(
-        field("attributes", repeat($.attribute_list)),
+        field("attributes", repeat($.attribute)),
         "mod",
         field("name", $.name),
         choice(terminator, $.module_body)
@@ -77,6 +83,7 @@ module.exports = grammar({
 
     import_declaration: ($) =>
       seq(
+        field("attributes", repeat($.attribute)),
         "use",
         field("path", $.path),
         field("alias", optional(seq("as", $.name))),
@@ -85,7 +92,7 @@ module.exports = grammar({
 
     const_declaration: ($) =>
       seq(
-        field("attributes", repeat($.attribute_list)),
+        field("attributes", repeat($.attribute)),
         "const",
         field("name", $.name),
         ":",
@@ -97,9 +104,10 @@ module.exports = grammar({
 
     typealias_declaration: ($) =>
       seq(
+        field("attributes", repeat($.attribute)),
         "type",
         field("name", $.name),
-        field("type_parameters", optional($.type_parameter_list)),
+        field("type_parameters", optional($.type_parameters)),
         "=",
         field("type", $._type),
         terminator
@@ -107,47 +115,41 @@ module.exports = grammar({
 
     trait_declaration: ($) =>
       seq(
-        field("attributes", repeat($.attribute_list)),
+        field("attributes", repeat($.attribute)),
         "trait",
         field("name", $.name),
-        field("type_parameters", optional($.type_parameter_list)),
+        field("type_parameters", optional($.type_parameters)),
         field("body", $.trait_body)
       ),
 
     trait_body: ($) => seq("{", repeat($.trait_function), "}"),
 
-    // Allow either fully defined function (with body)
-    // or signature only
-    trait_function: ($) =>
-      seq(
-        field("signature", $.function_signature),
-        choice(field("body", $.block), terminator)
-      ),
+    // Only function prototype allowed for now, no default implementation
+    trait_function: ($) => seq($.function_signature, terminator),
 
     struct_declaration: ($) =>
       seq(
-        field("attributes", repeat($.attribute_list)),
+        field("attributes", repeat($.attribute)),
         "struct",
         field("name", $.name),
-        field("type_parameters", optional($.type_parameter_list)),
-        choice(field("fields", $.member_declaration_list), terminator)
+        field("type_parameters", optional($.type_parameters)),
+        choice(field("fields", $.member_declarations), terminator)
       ),
 
     enum_declaration: ($) =>
       seq(
-        field("attributes", repeat($.attribute_list)),
+        field("attributes", repeat($.attribute)),
         "enum",
         field("name", $.name),
-        field("type_parameters", optional($.type_parameter_list)),
-        field("variants", $.member_declaration_list)
+        field("type_parameters", optional($.type_parameters)),
+        field("variants", $.member_declarations)
       ),
 
-    member_declaration_list: ($) =>
-      seq("{", list($.member_declaration, ","), "}"),
+    member_declarations: ($) => seq("{", list($.member_declaration, ","), "}"),
 
     member_declaration: ($) =>
       seq(
-        field("attributes", repeat($.attribute_list)),
+        field("attributes", repeat($.attribute)),
         field("name", $.name),
         ":",
         field("type", $._type)
@@ -158,20 +160,20 @@ module.exports = grammar({
     // Impl MyType
     impl_base: ($) =>
       seq(
-        field("attributes", repeat($.attribute_list)),
+        field("attributes", repeat($.attribute)),
         "impl",
         field("name", $.name),
-        field("type_parameters", optional($.type_parameter_list)),
+        field("type_parameters", optional($.type_parameters)),
         field("body", $.impl_body)
       ),
 
     // Impl MyType of MyTrait
     impl_trait: ($) =>
       seq(
-        field("attributes", repeat($.attribute_list)),
+        field("attributes", repeat($.attribute)),
         "impl",
         field("name", $.name),
-        field("type_parameters", optional($.type_parameter_list)),
+        field("type_parameters", optional($.type_parameters)),
         "of",
         field("trait", $.qualified_name),
         field("body", $.impl_body)
@@ -184,57 +186,78 @@ module.exports = grammar({
 
     function_signature: ($) =>
       seq(
-        field("attributes", repeat($.attribute_list)),
+        field("attributes", repeat($.attribute)),
         "fn",
         field("name", $.name),
-        field("type_parameters", optional($.type_parameter_list)),
-        field("parameters", $.parameter_list),
+        field("type_parameters", optional($.type_parameters)),
+        field("parameters", $.parameters),
         field("return_type", optional(seq("->", $._type)))
       ),
 
-    parameter_list: ($) => seq("(", list($.parameter_declaration, ","), ")"),
+    parameters: ($) => seq("(", list($.parameter, ","), ")"),
 
-    parameter_declaration: ($) =>
+    parameter: ($) =>
       seq(
+        field("attributes", repeat($.attribute)),
         field("modifiers", repeat($._modifier)),
         field("name", $.name),
         ":",
         field("type", $._type)
       ),
 
-    type_parameter_list: ($) =>
-      seq("<", list1($._type_parameter_declaration, ","), ">"),
+    type_parameters: ($) => seq("<", list1($._type_parameter, ","), ">"),
 
-    _type_parameter_declaration: ($) =>
-      choice($.name, $.type_const_declaration, $.type_impl_declaration),
+    _type_parameter: ($) =>
+      seq(
+        field("attributes", repeat($.attribute)),
+        field(
+          "parameter",
+          choice($.name, $.type_parameter_const, $.type_parameter_impl)
+        )
+      ),
 
-    type_const_declaration: ($) =>
+    type_parameter_const: ($) =>
       seq("const", field("name", $.name), ":", field("type", $._type)),
 
-    type_impl_declaration: ($) =>
+    type_parameter_impl: ($) =>
       seq("impl", field("name", $.name), ":", field("type", $._type)),
 
     // ******************************************
     // Expression - Statements
     // ******************************************
     block: ($) =>
-      seq("{", seq(repeat(seq($._statement)), optional($._expression)), "}"),
+      seq("{", seq(repeat(seq($.statement)), optional($.tail_expression)), "}"),
 
-    _statement: ($) =>
-      choice(
-        $.let_statement,
-        $.assignment_statement,
-        $.return_statement,
-        $.break_statement,
-
-        // Depending on the context, these expressions can be interpreted as
-        // statement
-        $.if_expression,
-        $.loop_expression,
-        $.match_expression,
-
-        seq($._expression, terminator)
+    tail_expression: ($) =>
+      prec(
+        PREC.tail,
+        seq(
+          field("attributes", repeat($.attribute)),
+          field("expr", $._expression)
+        )
       ),
+
+    statement: ($) =>
+      prec(PREC.statement, seq(
+        field("attributes", repeat($.attribute)),
+        field(
+          "statement",
+          choice(
+            $.let_statement,
+            $.assignment_statement,
+            $.return_statement,
+            $.break_statement,
+
+            // Depending on the context, these expressions can be interpreted as
+            // statement
+            $.if_expression,
+            $.loop_expression,
+            $.match_expression,
+
+            seq($._expression, terminator)
+          )
+        )
+      )),
 
     let_statement: ($) =>
       seq(
@@ -261,7 +284,7 @@ module.exports = grammar({
 
     _expression: ($) =>
       choice(
-        $.tuple_expression,
+        $.tuple_expressions,
         $.block,
 
         $.unary_expression,
@@ -270,7 +293,9 @@ module.exports = grammar({
         $.if_expression,
         $.loop_expression,
         $.match_expression,
+
         $.selector_expression,
+        $.index_expression,
 
         $.call_expression,
 
@@ -281,7 +306,7 @@ module.exports = grammar({
     // Expression that cannot be surrounded by brackets (Ex. if condition)
     _simple_expression: ($) =>
       choice(
-        $.tuple_expression,
+        $.tuple_expressions,
 
         $.unary_expression,
         $.binary_expression,
@@ -289,7 +314,9 @@ module.exports = grammar({
         $.if_expression,
         $.loop_expression,
         $.match_expression,
+
         $.selector_expression,
+        $.index_expression,
 
         $.call_expression,
 
@@ -311,8 +338,8 @@ module.exports = grammar({
         [PREC.multiplicative, choice(...multiplicative_operators)],
         [PREC.additive, choice(...additive_operators)],
         [PREC.comparative, choice(...comparative_operators)],
-        [PREC.and, "&&"],
-        [PREC.or, "||"],
+        [PREC.bit_and, "&"],
+        [PREC.bit_or, "|"],
       ];
 
       return choice(
@@ -329,7 +356,13 @@ module.exports = grammar({
       );
     },
 
-    tuple_expression: ($) => seq("(", list1($._expression, ","), ")"),
+    tuple_expressions: ($) => seq("(", list1($.tuple_expression, ","), ")"),
+
+    tuple_expression: ($) =>
+      seq(
+        field("attributes", optional($.attribute)),
+        field("expr", $._expression)
+      ),
 
     if_expression: ($) =>
       prec.right(
@@ -354,6 +387,7 @@ module.exports = grammar({
 
     match_case: ($) =>
       seq(
+        field("attributes", repeat($.attribute)),
         field("pattern", $._match_case_pattern),
         "=>",
         field("value", $._expression)
@@ -364,16 +398,29 @@ module.exports = grammar({
     call_expression: ($) =>
       prec(
         PREC.primary,
-        seq(
-          field("operand", $._expression),
-          field("arguments", $.argument_list)
-        )
+        seq(field("operand", $._expression), field("arguments", $.arguments))
       ),
 
-    argument_list: ($) => seq("(", list($._expression, ","), ")"),
+    arguments: ($) => seq("(", list($.argument, ","), ")"),
+
+    argument: ($) =>
+      seq(
+        field("attributes", repeat($.attribute)),
+        field("argument", choice($._expression, $.named_argument))
+      ),
+
+    named_argument: ($) => seq($.name, "=", $._expression),
 
     selector_expression: ($) =>
-      seq(field("value", $._expression), ".", field("field", $.name)),
+      seq(field("operand", $._expression), ".", field("field", $.name)),
+
+    index_expression: ($) =>
+      seq(
+        field("operand", $._expression),
+        "[",
+        field("index", $._expression),
+        "]"
+      ),
 
     _literal_expression: ($) =>
       choice($.true, $.false, $.number, $.string, $.unit),
@@ -383,23 +430,21 @@ module.exports = grammar({
     //
     // Example: #[derive(Eq)], #[test]
     // ******************************************
-    attribute_list: ($) => seq("#", "[", repeat1($.attribute), "]"),
+    attribute: ($) => seq("#", "[", repeat1($.attribute_value), "]"),
 
-    attribute: ($) => seq($.path, optional($._attribute_argument_list)),
+    attribute_value: ($) => seq($.path, optional($._attribute_arguments)),
 
-    _attribute_argument_list: ($) =>
+    _attribute_arguments: ($) =>
       seq("(", list1($.attribute_argument, ","), ")"),
 
     attribute_argument: ($) =>
       choice(
-        // Simple literal value
-        $._literal_expression,
-        // Simple name
         $.name,
+        $._literal_expression,
         // Key - Value
         seq($.path, ":", $._literal_expression),
         // Key - Tuple of arguments
-        seq($.path, ":", $._attribute_argument_list)
+        seq($.path, ":", $._attribute_arguments)
       ),
 
     // ******************************************
@@ -420,27 +465,28 @@ module.exports = grammar({
       seq(
         repeat(seq($.qualified_name_segment, "::")),
         $.name,
-        optional(seq("::", $.type_argument_list))
+        optional(seq("::", $.type_arguments))
       ),
-    qualified_name_segment: ($) => seq($.name, optional($.type_argument_list)),
-    type_argument_list: ($) => seq("<", list1($._literal_expression, ","), ">"),
+    qualified_name_segment: ($) => seq($.name, optional($.type_arguments)),
 
     wildcard: ($) => "_",
-
-    // Represents a value binding (ex. val)
 
     // ******************************************
     // Types
     // ******************************************
-    _type: ($) => choice($.type_tuple, $.unit_type, $.type_identifier),
+    _type: ($) => choice($.type_tuple, $.type_identifier),
 
     type_tuple: ($) => seq("(", list($._type, ","), ")"),
 
-    unit_type: ($) => token(seq("(", ")")),
+    type_identifier: ($) => seq($.qualified_name, optional($.type_arguments)),
 
-    type_identifier: ($) => seq($.qualified_name, optional($.type_parameters)),
+    type_arguments: ($) => seq("<", list($.type_argument, ","), ">"),
 
-    type_parameters: ($) => seq("<", list($._type, ","), ">"),
+    type_argument: ($) =>
+      seq(
+        field("attributes", repeat($.attribute)),
+        field("parameter", choice($.qualified_name, $._literal_expression))
+      ),
 
     // ******************************************
     // Patterns
@@ -466,12 +512,12 @@ module.exports = grammar({
     // ******************************************
     true: ($) => "true",
     false: ($) => "false",
-    unit: ($) => token(seq("(", ")")),
     number: ($) =>
       seq(
         field("value", choice($.integer, $.hex, $.octal, $.binary)),
         field("suffix", optional($._number_suffix))
       ),
+    unit: ($) => token(seq("(", ")")),
 
     integer: ($) => /[0-9]+/,
     hex: ($) => /0x[0-9a-f]+/,

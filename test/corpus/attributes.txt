@@ -1,0 +1,133 @@
+===================
+Attributes Usage
+===================
+
+#[some_attribute]
+use foo::bar;
+
+#[some_attribute]
+mod foo;
+
+#[some_attribute]
+struct foo<#[some_attribute] T> {
+    #[some_attribute]
+    i: usize
+}
+
+#[some_attribute]
+trait foo<#[some_attribute] T> {
+    #[some_attribute]
+    fn foo(#[some_attribute] a: usize);
+}
+
+#[some_attribute]
+enum foo<#[some_attribute] T> {
+    #[some_attribute]
+    foo: ()
+}
+
+#[some_attribute]
+fn foo<#[some_attribute] T>(#[some_attribute] a: usize) {
+    #[some_attribute]
+    let x = 42;
+
+    #[some_attribute]
+    8 + 8
+}
+
+---
+
+(source_file
+    (import_declaration
+        (attribute (attribute_value (path (name))))
+        (path (name) (name))
+    )
+    (module_declaration
+        (attribute (attribute_value (path (name))))
+        (name)
+    )
+    (struct_declaration
+        (attribute (attribute_value (path (name))))
+        (name)
+        (type_parameters
+            (attribute (attribute_value (path (name))))
+            (name)
+        )
+        (member_declarations
+            (member_declaration
+                (attribute (attribute_value (path (name))))
+                (name)
+                (type_identifier (qualified_name (name)))
+            )
+        )
+    )
+    (trait_declaration
+        (attribute (attribute_value (path (name))))
+        (name)
+        (type_parameters
+            (attribute (attribute_value (path (name))))
+            (name)
+        )
+        (trait_body
+            (trait_function
+                (function_signature
+                    (attribute (attribute_value (path (name))))
+                    (name)
+                    (parameters
+                        (parameter
+                            (attribute (attribute_value (path (name))))
+                            (name)
+                            (type_identifier (qualified_name (name)))
+                        )
+                    )
+                )
+            )
+        )
+    )
+    (enum_declaration
+        (attribute (attribute_value (path (name))))
+        (name)
+        (type_parameters
+            (attribute (attribute_value (path (name))))
+            (name)
+        )
+        (member_declarations
+            (member_declaration
+                (attribute (attribute_value (path (name))))
+                (name)
+                (type_tuple)
+            )
+        )
+    )
+    (function_declaration
+        (function_signature
+            (attribute (attribute_value (path (name))))
+            (name)
+            (type_parameters
+                (attribute (attribute_value (path (name))))
+                (name)
+            )
+            (parameters
+                (parameter
+                    (attribute (attribute_value (path (name))))
+                    (name)
+                    (type_identifier (qualified_name (name)))
+                )
+            )
+        )
+        (block
+            (statement
+                (attribute (attribute_value (path (name))))
+                (let_statement (identifier) (number (integer)))
+            )
+            (tail_expression
+                (attribute (attribute_value (path (name))))
+                (binary_expression
+                    (number (integer))
+                    (number (integer))
+                )
+            )
+        )
+    )
+    
+)

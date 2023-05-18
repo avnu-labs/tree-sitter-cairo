@@ -9,23 +9,12 @@ trait Foo {
     fn bar2(self: Foo) -> u64;
 }
 
-trait Foo {
-    #[someattribute]
-    fn bar1(self: Foo) -> u64;
-}
-
 trait Foo<T> {
     fn bar1(self: T) -> u64;
 }
 
 trait Foo<A,B> {
     fn bar1(a: A, b: B) -> u64;
-}
-
-trait Foo {
-    fn bar() -> u64 {
-        let x = 8;
-    }
 }
 
 ---
@@ -41,8 +30,8 @@ trait Foo {
             (trait_function
                 (function_signature
                     (name)
-                    (parameter_list
-                        (parameter_declaration
+                    (parameters
+                        (parameter
                             (name)
                             (type_identifier (qualified_name (name)))
                         )
@@ -53,8 +42,8 @@ trait Foo {
             (trait_function
                 (function_signature
                     (name)
-                    (parameter_list
-                        (parameter_declaration
+                    (parameters
+                        (parameter
                             (name)
                             (type_identifier (qualified_name (name)))
                         )
@@ -66,31 +55,13 @@ trait Foo {
     )
     (trait_declaration
         (name)
-        (trait_body
-            (trait_function
-                (function_signature
-                    (attribute_list (attribute (path (name))))
-                    (name)
-                    (parameter_list
-                        (parameter_declaration
-                            (name)
-                            (type_identifier (qualified_name (name)))
-                        )
-                    )
-                    (type_identifier (qualified_name (name)))
-                )
-            )
-        )
-    )
-    (trait_declaration
-        (name)
-        (type_parameter_list (name))
+        (type_parameters (name))
         (trait_body
             (trait_function
                 (function_signature
                     (name)
-                    (parameter_list
-                        (parameter_declaration
+                    (parameters
+                        (parameter
                             (name)
                             (type_identifier (qualified_name (name)))
                         )
@@ -102,7 +73,7 @@ trait Foo {
     )
     (trait_declaration
         (name)
-        (type_parameter_list
+        (type_parameters
             (name)
             (name)
         )
@@ -110,35 +81,17 @@ trait Foo {
             (trait_function
                 (function_signature
                     (name)
-                    (parameter_list
-                        (parameter_declaration
+                    (parameters
+                        (parameter
                             (name)
                             (type_identifier (qualified_name (name)))
                         )
-                        (parameter_declaration
+                        (parameter
                             (name)
                             (type_identifier (qualified_name (name)))
                         )
                     )
                     (type_identifier (qualified_name (name)))
-                )
-            )
-        )
-    )
-    (trait_declaration
-        (name)
-        (trait_body
-            (trait_function
-                (function_signature
-                    (name)
-                    (parameter_list)
-                    (type_identifier (qualified_name (name)))
-                )
-                (block
-                    (let_statement
-                        (identifier)
-                        (number (integer))
-                    )
                 )
             )
         )
