@@ -6,4 +6,4 @@
 
 This is the current specification used for the Cairo parser.
 
-![Grammar Specification](resources/generated/grammar_spec.png)
+![Grammar Specification](GRAMMAR.md)
