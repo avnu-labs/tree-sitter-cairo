@@ -34,11 +34,11 @@ struct Foo{}
     )
     (struct_declaration
         (name)
-        (member_declaration_list)
+        (member_declarations)
     )
     (struct_declaration
         (name)
-        (member_declaration_list
+        (member_declarations
             (member_declaration
                 (name)
                 (type_identifier (qualified_name (name)))
@@ -47,7 +47,7 @@ struct Foo{}
     )
     (struct_declaration
         (name)
-        (member_declaration_list
+        (member_declarations
             (member_declaration
                 (name)
                 (type_identifier (qualified_name (name)))
@@ -60,8 +60,8 @@ struct Foo{}
     )
     (struct_declaration
         (name)
-        (type_parameter_list (name))
-        (member_declaration_list
+        (type_parameters (name))
+        (member_declarations
             (member_declaration
                 (name)
                 (type_identifier (qualified_name (name)))
@@ -70,11 +70,11 @@ struct Foo{}
     )
     (struct_declaration
         (name)
-        (type_parameter_list
+        (type_parameters
           (name)
           (name)
         )
-        (member_declaration_list
+        (member_declarations
             (member_declaration
                 (name)
                 (type_tuple 
@@ -85,13 +85,13 @@ struct Foo{}
         )
     )
     (struct_declaration
-        (attribute_list
-            (attribute 
+        (attribute
+            (attribute_value
                 (path (name))
                 (attribute_argument (name))
             )
         )
         (name)
-        (member_declaration_list)
+        (member_declarations)
     )
 )

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="401" height="379">
+   <defs>
+      <style type="text/css">
+    @namespace "http://www.w3.org/2000/svg";
+    .line                 {fill: none; stroke: #332900; stroke-width: 1;}
+    .bold-line            {stroke: #141000; shape-rendering: crispEdges; stroke-width: 2;}
+    .thin-line            {stroke: #1F1800; shape-rendering: crispEdges}
+    .filled               {fill: #332900; stroke: none;}
+    text.terminal         {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #141000;
+                            font-weight: bold;
+                          }
+    text.nonterminal      {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #1A1400;
+                            font-weight: normal;
+                          }
+    text.regexp           {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #1F1800;
+                            font-weight: normal;
+                          }
+    rect, circle, polygon {fill: #332900; stroke: #332900;}
+    rect.terminal         {fill: #FFDB4D; stroke: #332900; stroke-width: 1;}
+    rect.nonterminal      {fill: #FFEC9E; stroke: #332900; stroke-width: 1;}
+    rect.text             {fill: none; stroke: none;}
+    polygon.regexp        {fill: #FFF4C7; stroke: #332900; stroke-width: 1;}
+  </style>
+   </defs>
+   <polygon points="9 51 1 47 1 55"/>
+   <polygon points="17 51 9 47 9 55"/>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+       xlink:href="#attribute"
+       xlink:title="attribute">
+      <rect x="51" y="3" width="74" height="32"/>
+      <rect x="49" y="1" width="74" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="59" y="21">attribute</text>
+   </a>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+       xlink:href="#let_statement"
+       xlink:title="let_statement">
+      <rect x="185" y="37" width="110" height="32"/>
+      <rect x="183" y="35" width="110" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="193" y="55">let_statement</text>
+   </a>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+       xlink:href="#assignment_statement"
+       xlink:title="assignment_statement">
+      <rect x="185" y="81" width="168" height="32"/>
+      <rect x="183" y="79" width="168" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="193" y="99">assignment_statement</text>
+   </a>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+       xlink:href="#return_statement"
+       xlink:title="return_statement">
+      <rect x="185" y="125" width="132" height="32"/>
+      <rect x="183" y="123" width="132" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="193" y="143">return_statement</text>
+   </a>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+       xlink:href="#break_statement"
+       xlink:title="break_statement">
+      <rect x="185" y="169" width="130" height="32"/>
+      <rect x="183" y="167" width="130" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="193" y="187">break_statement</text>
+   </a>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+       xlink:href="#if_expression"
+       xlink:title="if_expression">
+      <rect x="185" y="213" width="104" height="32"/>
+      <rect x="183" y="211" width="104" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="193" y="231">if_expression</text>
+   </a>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+       xlink:href="#loop_expression"
+       xlink:title="loop_expression">
+      <rect x="185" y="257" width="124" height="32"/>
+      <rect x="183" y="255" width="124" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="193" y="275">loop_expression</text>
+   </a>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+       xlink:href="#match_expression"
+       xlink:title="match_expression">
+      <rect x="185" y="301" width="136" height="32"/>
+      <rect x="183" y="299" width="136" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="193" y="319">match_expression</text>
+   </a>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+       xlink:href="#_expression"
+       xlink:title="_expression">
+      <rect x="185" y="345" width="98" height="32"/>
+      <rect x="183" y="343" width="98" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="193" y="363">_expression</text>
+   </a>
+   <rect x="303" y="345" width="24" height="32" rx="10"/>
+   <rect x="301"
+          y="343"
+          width="24"
+          height="32"
+          class="terminal"
+          rx="10"/>
+   <text class="terminal" x="311" y="363">;</text>
+   <path class="line"
+          d="m17 51 h2 m20 0 h10 m0 0 h84 m-114 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -14 q0 -10 10 -10 m94 34 l20 0 m-20 0 q10 0 10 -10 l0 -14 q0 -10 -10 -10 m-94 0 h10 m74 0 h10 m40 34 h10 m110 0 h10 m0 0 h58 m-208 0 h20 m188 0 h20 m-228 0 q10 0 10 10 m208 0 q0 -10 10 -10 m-218 10 v24 m208 0 v-24 m-208 24 q0 10 10 10 m188 0 q10 0 10 -10 m-198 10 h10 m168 0 h10 m-198 -10 v20 m208 0 v-20 m-208 20 v24 m208 0 v-24 m-208 24 q0 10 10 10 m188 0 q10 0 10 -10 m-198 10 h10 m132 0 h10 m0 0 h36 m-198 -10 v20 m208 0 v-20 m-208 20 v24 m208 0 v-24 m-208 24 q0 10 10 10 m188 0 q10 0 10 -10 m-198 10 h10 m130 0 h10 m0 0 h38 m-198 -10 v20 m208 0 v-20 m-208 20 v24 m208 0 v-24 m-208 24 q0 10 10 10 m188 0 q10 0 10 -10 m-198 10 h10 m104 0 h10 m0 0 h64 m-198 -10 v20 m208 0 v-20 m-208 20 v24 m208 0 v-24 m-208 24 q0 10 10 10 m188 0 q10 0 10 -10 m-198 10 h10 m124 0 h10 m0 0 h44 m-198 -10 v20 m208 0 v-20 m-208 20 v24 m208 0 v-24 m-208 24 q0 10 10 10 m188 0 q10 0 10 -10 m-198 10 h10 m136 0 h10 m0 0 h32 m-198 -10 v20 m208 0 v-20 m-208 20 v24 m208 0 v-24 m-208 24 q0 10 10 10 m188 0 q10 0 10 -10 m-198 10 h10 m98 0 h10 m0 0 h10 m24 0 h10 m0 0 h26 m23 -308 h-3"/>
+   <polygon points="391 51 399 47 399 55"/>
+   <polygon points="391 51 383 47 383 55"/>
+</svg>

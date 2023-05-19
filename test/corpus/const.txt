@@ -65,9 +65,9 @@ const foo: felt252 = 'hello';
             (type_identifier (qualified_name (name)))
             (type_identifier (qualified_name (name)))
         )
-        (tuple_expression
-            (number (integer))
-            (number (integer))
+        (tuple_expressions
+            (tuple_expression (number (integer)))
+            (tuple_expression (number (integer)))
         )
     )
     (const_declaration
