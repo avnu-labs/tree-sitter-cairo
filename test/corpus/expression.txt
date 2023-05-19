@@ -194,6 +194,7 @@ fn foo() {
     let Foo{ a, b } = foo;
     let Foo(a, b) = foo;
     let (a, b) = (true, true);
+    let a = @b;
 }
 
 ---
@@ -247,6 +248,12 @@ fn foo() {
                         (tuple_expression (true))
                         (tuple_expression (true))
                     )
+                )
+            )
+            (statement
+                (let_statement 
+                    (identifier)
+                    (unary_expression (qualified_name (name)))
                 )
             )
         )

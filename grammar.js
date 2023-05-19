@@ -12,7 +12,7 @@ const PREC = {
     tail: 0,
     statement: -1,
   },
-  unary_operator = ['!', '*', '-'],
+  unary_operator = ['!', '*', '-', "@"],
   multiplicative_operators = ["*", "/", "%"],
   additive_operators = ["+", "-"],
   comparative_operators = ["==", "!=", "<", "<=", ">", ">="],
@@ -467,6 +467,7 @@ module.exports = grammar({
         $.name,
         optional(seq("::", $.type_arguments))
       ),
+
     qualified_name_segment: ($) => seq($.name, optional($.type_arguments)),
 
     wildcard: ($) => "_",
@@ -474,9 +475,11 @@ module.exports = grammar({
     // ******************************************
     // Types
     // ******************************************
-    _type: ($) => choice($.type_tuple, $.type_identifier),
+    _type: ($) => choice($.type_tuple, $.type_identifier, $.wildcard, $.type_snapshot),
 
     type_tuple: ($) => seq("(", list($._type, ","), ")"),
+
+    type_snapshot: ($) => seq("@", $._type),
 
     type_identifier: ($) => seq($.qualified_name, optional($.type_arguments)),
 

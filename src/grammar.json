@@ -1545,6 +1545,10 @@
                 {
                   "type": "STRING",
                   "value": "-"
+                },
+                {
+                  "type": "STRING",
+                  "value": "@"
                 }
               ]
             }
@@ -2500,6 +2504,14 @@
         {
           "type": "SYMBOL",
           "name": "type_identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "wildcard"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_snapshot"
         }
       ]
     },
@@ -2546,6 +2558,19 @@
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "type_snapshot": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type"
         }
       ]
     },

@@ -1,0 +1,56 @@
+============================
+Types declaration
+============================
+
+fn foo() {
+    let a: felt = 8;
+    let a: (felt) = 8;
+    let a: (felt, felt) = 8;
+    let a: @felt = @8;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (function_signature
+            (name)
+            (parameters)
+        )
+        (block
+            (statement
+                (let_statement
+                    (identifier)
+                    (type_identifier (qualified_name (name)))
+                    (number (integer))
+                )
+            )
+            (statement
+                (let_statement
+                    (identifier)
+                    (type_tuple
+                        (type_identifier (qualified_name (name)))
+                    )
+                    (number (integer))
+                )
+            )
+            (statement
+                (let_statement
+                    (identifier)
+                    (type_tuple
+                        (type_identifier (qualified_name (name)))
+                        (type_identifier (qualified_name (name)))
+                    )
+                    (number (integer))
+                )
+            )
+            (statement
+                (let_statement
+                    (identifier)
+                    (type_snapshot (type_identifier (qualified_name (name))))
+                    (unary_expression (number (integer)))
+                )
+            )
+        )
+    )
+)
