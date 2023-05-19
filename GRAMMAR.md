@@ -528,7 +528,7 @@ referenced by:
 
 ```
 unary_expression
-         ::= ( '!' | '*' | '-' ) _expression
+         ::= ( '!' | '*' | '-' | '@' ) _expression
 ```
 
 referenced by:
@@ -925,6 +925,8 @@ referenced by:
 ```
 _type    ::= type_tuple
            | type_identifier
+           | '_'
+           | type_snapshot
 ```
 
 referenced by:
@@ -936,6 +938,7 @@ referenced by:
 * parameter
 * type_parameter_const
 * type_parameter_impl
+* type_snapshot
 * type_tuple
 * typealias_declaration
 
@@ -946,6 +949,19 @@ referenced by:
 ```
 type_tuple
          ::= '(' ( _type ',' )* _type? ')'
+```
+
+referenced by:
+
+* _type
+
+**type_snapshot:**
+
+![type_snapshot](resources/diagram/type_snapshot.svg)
+
+```
+type_snapshot
+         ::= '@' _type
 ```
 
 referenced by:
