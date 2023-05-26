@@ -39,43 +39,43 @@ fn foo<#[some_attribute] T>(#[some_attribute] a: usize) {
 
 (source_file
     (import_declaration
-        (attribute (attribute_value (path (name))))
+        (attribute (attribute_value (attribute_path (name))))
         (path (name) (name))
     )
     (module_declaration
-        (attribute (attribute_value (path (name))))
+        (attribute (attribute_value (attribute_path (name))))
         (name)
     )
     (struct_declaration
-        (attribute (attribute_value (path (name))))
+        (attribute (attribute_value (attribute_path (name))))
         (name)
         (type_parameters
-            (attribute (attribute_value (path (name))))
+            (attribute (attribute_value (attribute_path (name))))
             (name)
         )
         (member_declarations
             (member_declaration
-                (attribute (attribute_value (path (name))))
+                (attribute (attribute_value (attribute_path (name))))
                 (name)
                 (type_identifier (qualified_name (name)))
             )
         )
     )
     (trait_declaration
-        (attribute (attribute_value (path (name))))
+        (attribute (attribute_value (attribute_path (name))))
         (name)
         (type_parameters
-            (attribute (attribute_value (path (name))))
+            (attribute (attribute_value (attribute_path (name))))
             (name)
         )
         (trait_body
             (trait_function
                 (function_signature
-                    (attribute (attribute_value (path (name))))
+                    (attribute (attribute_value (attribute_path (name))))
                     (name)
                     (parameters
                         (parameter
-                            (attribute (attribute_value (path (name))))
+                            (attribute (attribute_value (attribute_path (name))))
                             (name)
                             (type_identifier (qualified_name (name)))
                         )
@@ -85,15 +85,15 @@ fn foo<#[some_attribute] T>(#[some_attribute] a: usize) {
         )
     )
     (enum_declaration
-        (attribute (attribute_value (path (name))))
+        (attribute (attribute_value (attribute_path (name))))
         (name)
         (type_parameters
-            (attribute (attribute_value (path (name))))
+            (attribute (attribute_value (attribute_path (name))))
             (name)
         )
         (member_declarations
             (member_declaration
-                (attribute (attribute_value (path (name))))
+                (attribute (attribute_value (attribute_path (name))))
                 (name)
                 (type_tuple)
             )
@@ -101,15 +101,15 @@ fn foo<#[some_attribute] T>(#[some_attribute] a: usize) {
     )
     (function_declaration
         (function_signature
-            (attribute (attribute_value (path (name))))
+            (attribute (attribute_value (attribute_path (name))))
             (name)
             (type_parameters
-                (attribute (attribute_value (path (name))))
+                (attribute (attribute_value (attribute_path (name))))
                 (name)
             )
             (parameters
                 (parameter
-                    (attribute (attribute_value (path (name))))
+                    (attribute (attribute_value (attribute_path (name))))
                     (name)
                     (type_identifier (qualified_name (name)))
                 )
@@ -117,11 +117,11 @@ fn foo<#[some_attribute] T>(#[some_attribute] a: usize) {
         )
         (block
             (statement
-                (attribute (attribute_value (path (name))))
+                (attribute (attribute_value (attribute_path (name))))
                 (let_statement (identifier) (number (integer)))
             )
             (tail_expression
-                (attribute (attribute_value (path (name))))
+                (attribute (attribute_value (attribute_path (name))))
                 (binary_expression
                     (number (integer))
                     (number (integer))

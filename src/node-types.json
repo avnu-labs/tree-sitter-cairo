@@ -24,6 +24,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -48,10 +52,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -60,7 +60,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -83,6 +91,20 @@
         "types": [
           {
             "type": "attribute",
+            "named": true
+          }
+        ]
+      },
+      "modifier": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "modifier_mut",
+            "named": true
+          },
+          {
+            "type": "modifier_ref",
             "named": true
           }
         ]
@@ -113,11 +135,75 @@
         "required": true,
         "types": [
           {
-            "type": "name",
+            "type": "binary_expression",
             "named": true
           },
           {
-            "type": "wildcard",
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "loop_expression",
+            "named": true
+          },
+          {
+            "type": "match_expression",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "selector_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
+            "named": true
+          },
+          {
+            "type": "tuple_expressions",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unit",
             "named": true
           }
         ]
@@ -173,6 +259,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -193,10 +283,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -205,7 +291,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -283,6 +377,21 @@
     }
   },
   {
+    "type": "attribute_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "attribute_value",
     "named": true,
     "fields": {},
@@ -295,7 +404,7 @@
           "named": true
         },
         {
-          "type": "path",
+          "type": "attribute_path",
           "named": true
         }
       ]
@@ -326,6 +435,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -346,10 +459,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -358,7 +467,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -454,6 +571,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -474,10 +595,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -486,7 +603,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -549,6 +674,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "if_expression",
           "named": true
         },
@@ -569,10 +698,6 @@
           "named": true
         },
         {
-          "type": "qualified_name",
-          "named": true
-        },
-        {
           "type": "selector_expression",
           "named": true
         },
@@ -581,7 +706,15 @@
           "named": true
         },
         {
+          "type": "struct_expression",
+          "named": true
+        },
+        {
           "type": "true",
+          "named": true
+        },
+        {
+          "type": "try_expression",
           "named": true
         },
         {
@@ -634,6 +767,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -654,10 +791,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -666,7 +799,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -752,6 +893,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -772,10 +917,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -784,7 +925,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -948,6 +1097,21 @@
     }
   },
   {
+    "type": "identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_expression",
     "named": true,
     "fields": {
@@ -965,6 +1129,10 @@
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "identifier",
             "named": true
           },
           {
@@ -988,10 +1156,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -1001,6 +1165,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -1188,6 +1356,16 @@
           }
         ]
       },
+      "type_arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_arguments",
+            "named": true
+          }
+        ]
+      },
       "type_parameters": {
         "multiple": false,
         "required": false,
@@ -1265,6 +1443,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -1285,10 +1467,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -1297,7 +1475,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -1335,6 +1521,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -1355,10 +1545,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -1367,7 +1553,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -1473,6 +1667,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -1493,10 +1691,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -1505,7 +1699,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -1620,6 +1822,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -1640,10 +1846,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -1652,7 +1854,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -1721,6 +1931,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -1741,10 +1955,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -1753,7 +1963,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -1947,6 +2165,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "if_expression",
           "named": true
         },
@@ -1971,10 +2193,6 @@
           "named": true
         },
         {
-          "type": "qualified_name",
-          "named": true
-        },
-        {
           "type": "selector_expression",
           "named": true
         },
@@ -1983,7 +2201,15 @@
           "named": true
         },
         {
+          "type": "struct_expression",
+          "named": true
+        },
+        {
           "type": "true",
+          "named": true
+        },
+        {
+          "type": "try_expression",
           "named": true
         },
         {
@@ -2109,13 +2335,47 @@
   {
     "type": "path",
     "named": true,
+    "fields": {
+      "module": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "path_list",
+            "named": true
+          }
+        ]
+      },
+      "parent": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "::",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "path_list",
+    "named": true,
     "fields": {},
     "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "name",
+          "type": "path",
           "named": true
         }
       ]
@@ -2293,6 +2553,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "if_expression",
           "named": true
         },
@@ -2313,10 +2577,6 @@
           "named": true
         },
         {
-          "type": "qualified_name",
-          "named": true
-        },
-        {
           "type": "selector_expression",
           "named": true
         },
@@ -2325,7 +2585,15 @@
           "named": true
         },
         {
+          "type": "struct_expression",
+          "named": true
+        },
+        {
           "type": "true",
+          "named": true
+        },
+        {
+          "type": "try_expression",
           "named": true
         },
         {
@@ -2378,6 +2646,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -2398,10 +2670,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -2410,7 +2678,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -2527,6 +2803,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -2551,10 +2831,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "return_statement",
             "named": true
           },
@@ -2567,7 +2843,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -2584,6 +2868,89 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "struct_base",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "loop_expression",
+          "named": true
+        },
+        {
+          "type": "match_expression",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "selector_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "try_expression",
+          "named": true
+        },
+        {
+          "type": "tuple_expressions",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unit",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2633,6 +3000,138 @@
     }
   },
   {
+    "type": "struct_expression",
+    "named": true,
+    "fields": {
+      "fields": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "struct_expression_fields",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "qualified_name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "struct_expression_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "loop_expression",
+          "named": true
+        },
+        {
+          "type": "match_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "selector_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "try_expression",
+          "named": true
+        },
+        {
+          "type": "tuple_expressions",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct_expression_fields",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "struct_base",
+          "named": true
+        },
+        {
+          "type": "struct_expression_field",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "tail_expression",
     "named": true,
     "fields": {
@@ -2667,6 +3166,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -2687,10 +3190,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -2699,7 +3198,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -2795,6 +3302,89 @@
     }
   },
   {
+    "type": "try_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "call_expression",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "loop_expression",
+          "named": true
+        },
+        {
+          "type": "match_expression",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "selector_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "try_expression",
+          "named": true
+        },
+        {
+          "type": "tuple_expressions",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "tuple_expression",
     "named": true,
     "fields": {
@@ -2829,6 +3419,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -2849,10 +3443,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -2861,7 +3451,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -2922,10 +3520,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "string",
             "named": true
           },
@@ -2934,7 +3528,23 @@
             "named": true
           },
           {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "type_snapshot",
+            "named": true
+          },
+          {
+            "type": "type_tuple",
+            "named": true
+          },
+          {
             "type": "unit",
+            "named": true
+          },
+          {
+            "type": "wildcard",
             "named": true
           }
         ]
@@ -3222,6 +3832,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_expression",
             "named": true
           },
@@ -3242,10 +3856,6 @@
             "named": true
           },
           {
-            "type": "qualified_name",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
@@ -3254,7 +3864,15 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "try_expression",
             "named": true
           },
           {
@@ -3364,6 +3982,10 @@
     "named": false
   },
   {
+    "type": "..",
+    "named": false
+  },
+  {
     "type": "/",
     "named": false
   },
@@ -3409,6 +4031,10 @@
   },
   {
     "type": ">=",
+    "named": false
+  },
+  {
+    "type": "?",
     "named": false
   },
   {
@@ -3461,10 +4087,6 @@
   },
   {
     "type": "hex",
-    "named": true
-  },
-  {
-    "type": "identifier",
     "named": true
   },
   {

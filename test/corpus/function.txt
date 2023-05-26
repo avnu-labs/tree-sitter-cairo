@@ -124,7 +124,7 @@ fn foo<const T: usize>() {}
                     (type_identifier
                         (qualified_name (name))
                         (type_arguments
-                            (type_argument (qualified_name (name)))
+                            (type_argument (type_identifier (qualified_name (name))))
                         )
                     )
                 )
@@ -133,7 +133,7 @@ fn foo<const T: usize>() {}
         )
         (block)
     )
-        (function_declaration
+    (function_declaration
         (function_signature
             (name)
             (type_parameters

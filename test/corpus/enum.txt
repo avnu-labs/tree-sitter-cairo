@@ -39,7 +39,7 @@ enum Foo {
     (enum_declaration
         (attribute
             (attribute_value
-                (path (name))
+                (attribute_path (name))
                 (attribute_argument (name))
             )
         )

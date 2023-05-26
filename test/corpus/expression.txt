@@ -96,7 +96,7 @@ fn foo() {
                     (block
                         (statement
                             (assignment_statement
-                                (name)
+                                (identifier (name))
                                 (number (integer))
                             )
                         )
@@ -137,7 +137,7 @@ fn foo() {
         (block
             (statement
                 (match_expression
-                    (qualified_name (name))
+                    (identifier (name))
                     (match_cases
                         (match_case
                             (number (integer))
@@ -225,7 +225,7 @@ fn foo() {
                         (name)
                         (name)
                     )
-                    (qualified_name (name))
+                    (identifier (name))
                 )
             )
             (statement
@@ -235,7 +235,7 @@ fn foo() {
                         (identifier)
                         (identifier)
                     )
-                    (qualified_name (name))
+                    (identifier (name))
                 )
             )
             (statement
@@ -253,7 +253,7 @@ fn foo() {
             (statement
                 (let_statement 
                     (identifier)
-                    (unary_expression (qualified_name (name)))
+                    (unary_expression (identifier (name)))
                 )
             )
         )
@@ -281,12 +281,12 @@ fn foo() {
             (parameters)
         )
         (block
-            (statement (unary_expression (qualified_name (name))))
-            (statement (unary_expression (qualified_name (name))))
-            (statement (unary_expression (qualified_name (name))))
+            (statement (unary_expression (identifier (name))))
+            (statement (unary_expression (identifier (name))))
+            (statement (unary_expression (identifier (name))))
             (statement
                 (binary_expression
-                    (unary_expression (qualified_name (name)))
+                    (unary_expression (identifier (name)))
                     (number (integer))
                 )
             )
@@ -332,7 +332,7 @@ fn foo() {
             )
             (statement
                 (assignment_statement
-                    (name)
+                    (identifier (name))
                     (number (integer))
                 )
             )
@@ -344,7 +344,7 @@ fn foo() {
             )
             (statement
                 (assignment_statement
-                    (name)
+                    (identifier (name))
                     (number (integer))
                 )
             )
@@ -356,7 +356,7 @@ fn foo() {
             )
             (statement
                 (assignment_statement
-                    (name)
+                    (identifier (name))
                     (number (integer))
                 )
             )
@@ -368,7 +368,7 @@ fn foo() {
             )
             (statement
                 (assignment_statement
-                    (name)
+                    (identifier (name))
                     (number (integer))
                 )
             )
@@ -380,7 +380,7 @@ fn foo() {
             )
             (statement
                 (assignment_statement
-                    (name)
+                    (identifier (name))
                     (number (integer))
                 )
             )
@@ -395,7 +395,6 @@ Call expression
 fn foo() {
     a();
     a(8,9,10);
-    a::<1>(8);
     a(x = 9, y = 8);
 }
 
@@ -410,13 +409,13 @@ fn foo() {
         (block
             (statement
                 (call_expression 
-                    (qualified_name (name))
+                    (identifier (name))
                     (arguments)
                 )
             )
             (statement
                 (call_expression 
-                    (qualified_name (name))
+                    (identifier (name))
                     (arguments
                         (argument (number (integer)))
                         (argument (number (integer)))
@@ -426,20 +425,7 @@ fn foo() {
             )
             (statement
                 (call_expression 
-                    (qualified_name 
-                        (name) 
-                        (type_arguments 
-                            (type_argument (number (integer)))
-                        )
-                    )
-                    (arguments 
-                        (argument (number (integer)))
-                    ) 
-                )
-            )
-            (statement
-                (call_expression 
-                    (qualified_name (name))
+                    (identifier (name))
                     (arguments 
                         (argument 
                             (named_argument (name) (number (integer)))
@@ -475,7 +461,7 @@ fn foo() {
             (statement
                 (selector_expression
                     (selector_expression
-                        (qualified_name (name))
+                        (identifier (name))
                         (name)
                     )
                     (name)
@@ -485,7 +471,7 @@ fn foo() {
                 (selector_expression
                     (call_expression
                         (selector_expression
-                            (qualified_name (name))
+                            (identifier (name))
                             (name)
                         )
                         (arguments)
@@ -517,14 +503,59 @@ fn foo() {
         (block
             (statement
                 (index_expression
-                    (qualified_name (name))
+                    (identifier (name))
                     (number (integer))
                 )
             )
             (statement
                 (index_expression
-                    (qualified_name (name))
-                    (qualified_name (name))
+                    (identifier (name))
+                    (identifier (name))
+                )
+            )
+        )
+    )
+)
+
+============================
+Struct expression
+============================
+
+fn foo() {
+    let x = Foo{ a: 8, ..b };
+    let x = foo::Bar;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (function_signature
+            (name)
+            (parameters)
+        )
+        (block
+            (statement
+                (let_statement
+                    (identifier)
+                    (struct_expression
+                        (qualified_name (name))
+                        (struct_expression_fields
+                            (struct_expression_field
+                                (name)
+                                (number (integer))
+                            )
+                            (struct_base (identifier (name)))
+                        )
+                    )
+                )
+            )
+            (statement
+                (let_statement
+                    (identifier)
+                    (struct_expression
+                        (qualified_name (qualified_name_segment (name)) (name))
+                    )
                 )
             )
         )
